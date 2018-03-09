@@ -12,6 +12,8 @@
 		04F5FEB82052E6D4001066CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F5FEB62052E6D4001066CB /* Main.storyboard */; };
 		04F5FEBA2052E6D4001066CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F5FEB92052E6D4001066CB /* Assets.xcassets */; };
 		04F5FEBD2052E6D4001066CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F5FEBB2052E6D4001066CB /* LaunchScreen.storyboard */; };
+		04F5FEC52052E8FF001066CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F5FEC42052E8FF001066CB /* GoogleService-Info.plist */; };
+		1C19804A503FD9A78EF44E3A /* Pods_javi_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD1830702489ACD39A65D50 /* Pods_javi_mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		04F5FEB92052E6D4001066CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04F5FEBC2052E6D4001066CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04F5FEBE2052E6D4001066CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F5FEC42052E8FF001066CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		452BBDBF691BEF5192914841 /* Pods-javi_mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-javi_mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile.release.xcconfig"; sourceTree = "<group>"; };
+		6DD1830702489ACD39A65D50 /* Pods_javi_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_javi_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C85D6DA26A3C8FFDE0A4F1ED /* Pods-javi_mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-javi_mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C19804A503FD9A78EF44E3A /* Pods_javi_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				04F5FEB12052E6D4001066CB /* javi_mobile */,
 				04F5FEB02052E6D4001066CB /* Products */,
+				4793CD079B3DF5EB79A05F1F /* Pods */,
+				8535E8C80257CAB3BD48ADA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,26 @@
 				04F5FEB92052E6D4001066CB /* Assets.xcassets */,
 				04F5FEBB2052E6D4001066CB /* LaunchScreen.storyboard */,
 				04F5FEBE2052E6D4001066CB /* Info.plist */,
+				04F5FEC42052E8FF001066CB /* GoogleService-Info.plist */,
 			);
 			path = javi_mobile;
+			sourceTree = "<group>";
+		};
+		4793CD079B3DF5EB79A05F1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C85D6DA26A3C8FFDE0A4F1ED /* Pods-javi_mobile.debug.xcconfig */,
+				452BBDBF691BEF5192914841 /* Pods-javi_mobile.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8535E8C80257CAB3BD48ADA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DD1830702489ACD39A65D50 /* Pods_javi_mobile.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F5FEC12052E6D4001066CB /* Build configuration list for PBXNativeTarget "javi_mobile" */;
 			buildPhases = (
+				5E5AED4C7654F3DD168A1FC7 /* [CP] Check Pods Manifest.lock */,
 				04F5FEAB2052E6D4001066CB /* Sources */,
 				04F5FEAC2052E6D4001066CB /* Frameworks */,
 				04F5FEAD2052E6D4001066CB /* Resources */,
+				4624E6287B33B76932903520 /* [CP] Embed Pods Frameworks */,
+				671A93027660E827D40D8EEB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,12 +154,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F5FEBD2052E6D4001066CB /* LaunchScreen.storyboard in Resources */,
+				04F5FEC52052E8FF001066CB /* GoogleService-Info.plist in Resources */,
 				04F5FEBA2052E6D4001066CB /* Assets.xcassets in Resources */,
 				04F5FEB82052E6D4001066CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4624E6287B33B76932903520 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E5AED4C7654F3DD168A1FC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-javi_mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		671A93027660E827D40D8EEB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04F5FEAB2052E6D4001066CB /* Sources */ = {
@@ -272,6 +361,7 @@
 		};
 		04F5FEC22052E6D4001066CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C85D6DA26A3C8FFDE0A4F1ED /* Pods-javi_mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +377,7 @@
 		};
 		04F5FEC32052E6D4001066CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 452BBDBF691BEF5192914841 /* Pods-javi_mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
