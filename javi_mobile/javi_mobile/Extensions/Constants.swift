@@ -14,25 +14,12 @@ import UIKit
  */
 enum Colors: Int {
     case colorPrimary = 0xFFFF00
-    case colorAuthPrimary = 0x1169D3
-    case colorPrimaryLight = 0x3698FF
-    case colorLightrayText = 0x9B9B9B
-    case colorAlertNormalButton = 0x007AFF
-    case colorAlertHightLightButton = 0xFC5A5A
-    case colorSearchBorderColor = 0x3D9AFC
-    
-    case colorMsgSendButtonBg = 0x858E99
-    case colorMsgTextBg = 0xFAFAFA
-    case colorMsgTextBgDisable = 0xE4E4E4
-    case colorMsgBorderText = 0xC7C7CC
-    case colorMsgSender = 0x157EFC
-    case colorMsgReceiver = 0xF2F2F2
-    case colorMsgText = 0x3A3838
+    case colorLightBlue = 0x00FFF7
+    case colorWhite = 0xFFFFFF
 }
 
 extension UIColor {
     static let primary = UIColor(color: Colors.colorPrimary)
-    static let primaryLight = UIColor(color: Colors.colorPrimaryLight)
     static let dimBackground = UIColor(white: 0, alpha: 0.5)
 }
 

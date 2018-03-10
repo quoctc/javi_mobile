@@ -77,7 +77,7 @@
                                 <rect key="frame" x="16" y="448" width="343" height="40"/>
                                 <state key="normal" image="no_account_button"/>
                                 <connections>
-                                    <segue destination="99U-kT-LZH" kind="show" id="ED0-4U-z0I"/>
+                                    <segue destination="kG5-db-sAe" kind="show" id="ED0-4U-z0I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="372" y="32.833583208395808"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Chart-->
         <scene sceneID="K3H-sk-ITT">
             <objects>
-                <viewController id="99U-kT-LZH" customClass="MainViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Chart" id="99U-kT-LZH" customClass="MainViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XxE-eC-EPC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,11 +138,118 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FC3-wW-Onu">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="550"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVG-VL-XW2">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vAx-yP-VFk">
+                                                <rect key="frame" x="13" y="0.0" width="349" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="vAx-yP-VFk" secondAttribute="height" multiplier="349:30" id="qrL-1J-Dwj"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="D"/>
+                                                    <segment title="W"/>
+                                                    <segment title="M"/>
+                                                    <segment title="Y"/>
+                                                </segments>
+                                                <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouw-f1-LxP">
+                                                <rect key="frame" x="44" y="38" width="287" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="287" id="6OS-4Z-mX3"/>
+                                                    <constraint firstAttribute="height" constant="30" id="vRc-wZ-pCZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <state key="normal" title="từ 5 thg 3, 2018  đến 12 thg 3, 2018  ">
+                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDP-a0-Qs0" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="76" width="375" height="320"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="320" id="E2Q-Ap-XZ1"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89x-ev-g0p">
+                                                <rect key="frame" x="13" y="404" width="349" height="1"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="bgX-dO-FB6"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhiệt độ phòng máy lạnh:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVF-mF-XM6">
+                                                <rect key="frame" x="13" y="413" width="349" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="349" id="NMh-Rb-lLg"/>
+                                                    <constraint firstAttribute="height" constant="21" id="OM7-og-SHq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GbW-5E-Sfw">
+                                                <rect key="frame" x="11" y="442" width="353" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="wtM-11-ZaO"/>
+                                                </constraints>
+                                                <color key="minimumTrackTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </slider>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xai-CI-C0a">
+                                                <rect key="frame" x="13" y="487" width="349" height="1"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="8S2-Lz-EFv"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đèn phòng máy lạnh:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efC-74-c3S">
+                                                <rect key="frame" x="13" y="504" width="349" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="349" id="afq-ME-2wH"/>
+                                                    <constraint firstAttribute="height" constant="21" id="mKR-E9-XBv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZ2-zg-syE">
+                                                <rect key="frame" x="316" y="499" width="51" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="jC0-Fg-Ipm"/>
+                                                    <constraint firstAttribute="width" constant="49" id="rYL-Kw-dHa"/>
+                                                </constraints>
+                                                <color key="onTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </switch>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="RZ2-zg-syE" secondAttribute="trailing" constant="10" id="1c3-kV-0z3"/>
+                                            <constraint firstItem="xai-CI-C0a" firstAttribute="top" secondItem="GbW-5E-Sfw" secondAttribute="bottom" constant="16" id="4wF-dm-xRI"/>
+                                            <constraint firstItem="vAx-yP-VFk" firstAttribute="top" secondItem="PVG-VL-XW2" secondAttribute="top" id="7x5-Iw-9ws"/>
+                                            <constraint firstItem="89x-ev-g0p" firstAttribute="top" secondItem="VDP-a0-Qs0" secondAttribute="bottom" constant="8" id="AR0-Zu-KSM"/>
+                                            <constraint firstItem="89x-ev-g0p" firstAttribute="width" secondItem="PVG-VL-XW2" secondAttribute="height" multiplier="349:667" id="Fqt-Rf-zW2"/>
+                                            <constraint firstItem="efC-74-c3S" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" constant="13" id="Noo-wo-7WY"/>
+                                            <constraint firstItem="ouw-f1-LxP" firstAttribute="centerX" secondItem="PVG-VL-XW2" secondAttribute="centerX" id="SSP-CP-gN3"/>
+                                            <constraint firstAttribute="trailing" secondItem="VDP-a0-Qs0" secondAttribute="trailing" id="Yes-8b-krd"/>
+                                            <constraint firstItem="xai-CI-C0a" firstAttribute="width" secondItem="89x-ev-g0p" secondAttribute="width" id="Ytc-H8-U8a"/>
+                                            <constraint firstItem="RZ2-zg-syE" firstAttribute="centerY" secondItem="efC-74-c3S" secondAttribute="centerY" id="bIL-GZ-0VY"/>
+                                            <constraint firstItem="89x-ev-g0p" firstAttribute="centerX" secondItem="PVG-VL-XW2" secondAttribute="centerX" id="fYQ-Do-reg"/>
+                                            <constraint firstItem="GbW-5E-Sfw" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" constant="13" id="hK5-Wm-L7k"/>
+                                            <constraint firstItem="vAx-yP-VFk" firstAttribute="centerX" secondItem="PVG-VL-XW2" secondAttribute="centerX" id="me7-7f-4SS"/>
+                                            <constraint firstItem="AVF-mF-XM6" firstAttribute="top" secondItem="89x-ev-g0p" secondAttribute="bottom" constant="8" id="mgv-4Q-fKL"/>
+                                            <constraint firstItem="ouw-f1-LxP" firstAttribute="top" secondItem="vAx-yP-VFk" secondAttribute="bottom" constant="8" id="nhl-N2-sam"/>
+                                            <constraint firstItem="VDP-a0-Qs0" firstAttribute="top" secondItem="ouw-f1-LxP" secondAttribute="bottom" constant="8" id="oYe-Qt-g08"/>
+                                            <constraint firstItem="xai-CI-C0a" firstAttribute="centerX" secondItem="89x-ev-g0p" secondAttribute="centerX" id="rJu-AX-J8h"/>
+                                            <constraint firstItem="AVF-mF-XM6" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" constant="13" id="sdb-hq-fEg"/>
+                                            <constraint firstItem="GbW-5E-Sfw" firstAttribute="top" secondItem="AVF-mF-XM6" secondAttribute="bottom" constant="8" id="slv-ht-fFg"/>
+                                            <constraint firstItem="efC-74-c3S" firstAttribute="top" secondItem="xai-CI-C0a" secondAttribute="bottom" constant="16" id="vrh-3g-lXR"/>
+                                            <constraint firstItem="VDP-a0-Qs0" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" id="wer-dg-N1W"/>
+                                            <constraint firstAttribute="trailing" secondItem="GbW-5E-Sfw" secondAttribute="trailing" constant="13" id="yNC-gi-9Fu"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -161,16 +268,37 @@
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="bottom" secondItem="Zap-CN-Vwr" secondAttribute="bottom" id="G7D-jh-h4r"/>
                             <constraint firstItem="PVG-VL-XW2" firstAttribute="height" secondItem="XxE-eC-EPC" secondAttribute="height" id="MZa-CI-OMj"/>
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="leading" secondItem="Zap-CN-Vwr" secondAttribute="leading" id="Vz2-Zh-3aw"/>
+                            <constraint firstItem="vAx-yP-VFk" firstAttribute="width" secondItem="XxE-eC-EPC" secondAttribute="height" multiplier="349:667" id="gZI-6h-IcO"/>
                             <constraint firstItem="Zap-CN-Vwr" firstAttribute="trailing" secondItem="Oyf-TG-Knn" secondAttribute="trailing" constant="16" id="jxF-nu-ggN"/>
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="top" secondItem="Oyf-TG-Knn" secondAttribute="bottom" constant="8" id="lJM-qH-ZdS"/>
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="trailing" secondItem="Zap-CN-Vwr" secondAttribute="trailing" id="yFd-mE-0ac"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zap-CN-Vwr"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Biểu đồ" image="bar_chart_icon" selectedImage="bar_chart_icon" id="GpU-YO-ggr"/>
+                    <connections>
+                        <outlet property="chartView" destination="VDP-a0-Qs0" id="BGC-XC-tLf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GX-TT-r3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253.5999999999999" y="32.833583208395808"/>
+            <point key="canvasLocation" x="1871" y="32"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="s5C-lI-27J">
+            <objects>
+                <viewController id="q05-Xr-Rrj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eSD-t0-Z6z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="OuH-ae-IKi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Camera" image="bar_camera_icon" selectedImage="bar_camera_icon" id="2ls-C5-vgx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpq-6n-wq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="801"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ro-EN-fyM">
@@ -189,8 +317,29 @@
             </objects>
             <point key="canvasLocation" x="-497" y="33"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oFJ-Sr-5bC">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kG5-db-sAe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D0j-ZU-nUz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="99U-kT-LZH" kind="relationship" relationship="viewControllers" id="Aa8-zP-MiW"/>
+                        <segue destination="q05-Xr-Rrj" kind="relationship" relationship="viewControllers" id="xjt-6l-eIh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IfZ-6b-QGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="33"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bar_camera_icon" width="25" height="21"/>
+        <image name="bar_chart_icon" width="25" height="25"/>
         <image name="button_bg" width="17" height="40"/>
         <image name="no_account_button" width="131" height="17"/>
     </resources>

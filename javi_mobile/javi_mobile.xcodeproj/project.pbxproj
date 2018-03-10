@@ -37,6 +37,9 @@
 		04F5FEF92052EF90001066CB /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FEF62052EF90001066CB /* DateUtil.swift */; };
 		04F5FEFA2052EF90001066CB /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FEF72052EF90001066CB /* MapUtil.swift */; };
 		04F5FEFD2052F028001066CB /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FEFC2052F027001066CB /* FontExtension.swift */; };
+		04F5FF002052FF41001066CB /* LargeValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FEFF2052FF41001066CB /* LargeValueFormatter.swift */; };
+		04F5FF022052FF57001066CB /* IntAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FF012052FF57001066CB /* IntAxisValueFormatter.swift */; };
+		04F5FF0420530485001066CB /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FF0320530485001066CB /* BalloonMarker.swift */; };
 		1C19804A503FD9A78EF44E3A /* Pods_javi_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD1830702489ACD39A65D50 /* Pods_javi_mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		04F5FEF62052EF90001066CB /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		04F5FEF72052EF90001066CB /* MapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
 		04F5FEFC2052F027001066CB /* FontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		04F5FEFF2052FF41001066CB /* LargeValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeValueFormatter.swift; sourceTree = "<group>"; };
+		04F5FF012052FF57001066CB /* IntAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntAxisValueFormatter.swift; sourceTree = "<group>"; };
+		04F5FF0320530485001066CB /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		452BBDBF691BEF5192914841 /* Pods-javi_mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-javi_mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile.release.xcconfig"; sourceTree = "<group>"; };
 		6DD1830702489ACD39A65D50 /* Pods_javi_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_javi_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85D6DA26A3C8FFDE0A4F1ED /* Pods-javi_mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-javi_mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +185,9 @@
 		04F5FEF42052EF90001066CB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				04F5FF0320530485001066CB /* BalloonMarker.swift */,
+				04F5FF012052FF57001066CB /* IntAxisValueFormatter.swift */,
+				04F5FEFF2052FF41001066CB /* LargeValueFormatter.swift */,
 				04F5FEF52052EF90001066CB /* AsyncBlockOperation.swift */,
 				04F5FEF62052EF90001066CB /* DateUtil.swift */,
 				04F5FEF72052EF90001066CB /* MapUtil.swift */,
@@ -305,12 +314,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-javi_mobile/Pods-javi_mobile-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,9 +372,12 @@
 				04F5FEF82052EF90001066CB /* AsyncBlockOperation.swift in Sources */,
 				04F5FEF92052EF90001066CB /* DateUtil.swift in Sources */,
 				04F5FEE42052EE71001066CB /* MainViewController.swift in Sources */,
+				04F5FF022052FF57001066CB /* IntAxisValueFormatter.swift in Sources */,
 				04F5FEF32052EF50001066CB /* StoryboardHandler.swift in Sources */,
 				04F5FEFA2052EF90001066CB /* MapUtil.swift in Sources */,
 				04F5FEEF2052EF50001066CB /* Extensions.swift in Sources */,
+				04F5FF0420530485001066CB /* BalloonMarker.swift in Sources */,
+				04F5FF002052FF41001066CB /* LargeValueFormatter.swift in Sources */,
 				04F5FEF02052EF50001066CB /* NotificationHandler.swift in Sources */,
 				04F5FEEE2052EF50001066CB /* DateExtension.swift in Sources */,
 				04F5FEF12052EF50001066CB /* SegueHandler.swift in Sources */,
@@ -511,11 +525,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX99YN5P9;
 				INFOPLIST_FILE = javi_mobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.javi.javi-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -527,11 +542,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2EX99YN5P9;
 				INFOPLIST_FILE = javi_mobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.javi.javi-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
