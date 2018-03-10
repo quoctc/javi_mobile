@@ -91,7 +91,12 @@ class MainViewController: UIViewController, ChartViewDelegate {
     var options: [Option]!
     var shouldHideData: Bool = false
     
-    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    enum ChartType: Int {
+        case day = 0
+        case week
+        case month
+        case year
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,9 +145,10 @@ class MainViewController: UIViewController, ChartViewDelegate {
         xAxis.labelFont = UIFont.robotoLight(size: 10) ?? .systemFont(ofSize: 10, weight: .light)
         xAxis.granularity = 1
         xAxis.centerAxisLabelsEnabled = true
-        xAxis.valueFormatter = IntAxisValueFormatter()
+        xAxis.valueFormatter = WeekAxisValueFormatter()
         xAxis.labelTextColor = UIColor(color: Colors.colorWhite, alpha: 50)
         xAxis.labelPosition = .bottom
+        xAxis.forceLabelsEnabled = true
         
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.maximumFractionDigits = 1
@@ -159,25 +165,25 @@ class MainViewController: UIViewController, ChartViewDelegate {
         self.updateChartData()
     }
     
-    func updateChartData() {
+    func updateChartData(count: Int = 7) {
         if self.shouldHideData {
             chartView.data = nil
             return
         }
         
-        self.setDataCount(Int(6), range: UInt32(100))
+        self.setDataCount(count, range: UInt32(100))
     }
     
     func setDataCount(_ count: Int, range: UInt32) {
         let groupSpace = 0.08
         let barSpace = 0.03
-        let barWidth = 0.2
-        // (0.2 + 0.03) * 4 + 0.08 = 1.00 -> interval per "group"
+        let barWidth = 0.28
         
-        let randomMultiplier = range * 100
-        let groupCount = count + 1
-        let startValue = 1
-        let endValue = startValue + groupCount
+        let randomMultiplier = range
+        //let groupCount = count//count + 1
+        let startValue = 0
+        let endValue = count//startValue + (groupCount-1)
+        chartView.xAxis.setLabelCount(count + 1, force: true)
         
         let block: (Int) -> BarChartDataEntry = { (i) -> BarChartDataEntry in
             return BarChartDataEntry(x: Double(i), y: Double(arc4random_uniform(randomMultiplier)))
@@ -207,13 +213,38 @@ class MainViewController: UIViewController, ChartViewDelegate {
         chartView.xAxis.axisMinimum = Double(startValue)
         
         // groupWidthWithGroupSpace(...) is a helper that calculates the width each group needs based on the provided parameters
-        chartView.xAxis.axisMaximum = Double(startValue) + data.groupWidth(groupSpace: groupSpace, barSpace: barSpace) * Double(groupCount)
+        chartView.xAxis.axisMaximum =  Double(endValue)//Double(startValue) + data.groupWidth(groupSpace: groupSpace, barSpace: barSpace) * Double(groupCount)
         
         data.groupBars(fromX: Double(startValue), groupSpace: groupSpace, barSpace: barSpace)
         
         chartView.data = data
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
 
+    @IBAction func changeChartType(_ sender: UISegmentedControl) {
+        var chartFormater: IAxisValueFormatter?
+        var count = 7
+        switch ChartType(rawValue: sender.selectedSegmentIndex)! {
+        case .day:
+            count = 10
+            break
+        case .week:
+            chartFormater = WeekAxisValueFormatter()
+            count = 7
+            break
+        case .month:
+            chartFormater = MonthAxisValueFormatter()
+            count = 4
+            break
+        case .year:
+            chartFormater = YearAxisValueFormatter()
+            count = 12
+            break
+        }
+        chartView.xAxis.valueFormatter = chartFormater
+        updateChartData(count: count)
+    }
+    
     /*
     // MARK: - Navigation
 
