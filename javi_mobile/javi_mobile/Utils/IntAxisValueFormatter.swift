@@ -15,23 +15,53 @@ public class IntAxisValueFormatter: NSObject, IAxisValueFormatter {
     }
 }
 
+public class DateValueFormatter: NSObject, IAxisValueFormatter {
+    private let dateFormatter = DateFormatter()
+    public var labels = [String]()
+    override init() {
+        super.init()
+        dateFormatter.dateFormat = "dd/MM"
+    }
+    
+    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        guard labels.count > 0 else {
+            return ""
+        }
+        guard value > 0 else { return labels[0] }
+        return labels[Int(value) % labels.count]
+    }
+}
+
 public class YearAxisValueFormatter: NSObject, IAxisValueFormatter {
     var monthsInYear = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        guard value > 0 else { return monthsInYear[0] }
         return monthsInYear[Int(value) % monthsInYear.count]
     }
 }
 
-public class MonthAxisValueFormatter: NSObject, IAxisValueFormatter {
-    var daysInMonth = ["1-7", "8-14", "15-21", "22-28"]
+public class WeekAxisValueFormatter: NSObject, IAxisValueFormatter {
+    public var daysInWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return daysInMonth[Int(value) % daysInMonth.count]
+        guard value > 0 else { return daysInWeek[0] }
+        return daysInWeek[Int(value) % daysInWeek.count]
     }
 }
 
-public class WeekAxisValueFormatter: NSObject, IAxisValueFormatter {
-    var daysInWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+public class DaysAxisValueFormatter: NSObject, IAxisValueFormatter {
+    public var days = [String]()
+    override public init() {
+        super.init()
+    }
+    
+    convenience init(from: Int, to: Int) {
+        self.init()
+        for i in from...to {
+            self.days.append(String(i))
+        }
+        print(self.days)
+    }
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return daysInWeek[Int(value) % daysInWeek.count]
+        return days[Int(value) % days.count]
     }
 }

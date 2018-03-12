@@ -39,27 +39,18 @@ class DateUtil {
     
     static func displayDateFormatter() -> DateFormatter {
         let df = DateFormatter()
-        df.dateFormat = DateFormat.custom("MM/dd/yy").stringValue()
+        df.dateFormat = DateFormat.custom("dd/MM").stringValue()
         return df
     }
+}
+
+extension Date {
+    func startOfMonth() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
+    }
     
-    static func parkingRemainTimeString(from interval: TimeInterval) -> String {
-        let hours: Int = Int(interval/(60*60))
-        let minutes: Int = (Int(interval) - hours*60*60)/60
-        let seconds: Int = Int(interval) - hours*60*60 - minutes*60
-        var remainTimeString = ""
-        if seconds != 0 {
-            remainTimeString = "\(seconds)s"
-        }
-        if minutes != 0 {
-            remainTimeString = "\(minutes)m \(remainTimeString)"
-        }
-        if hours != 0 {
-            remainTimeString = "\(hours)h \(remainTimeString)"
-        }
-        if remainTimeString.isEmpty {
-            remainTimeString = "0s"
-        }
-        return remainTimeString
+    func endOfMonth() -> Date {
+        return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
     }
 }
+

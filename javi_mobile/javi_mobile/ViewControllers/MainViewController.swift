@@ -9,88 +9,12 @@
 import UIKit
 import Charts
 
-enum Option {
-    case toggleValues
-    case toggleIcons
-    case toggleHighlight
-    case animateX
-    case animateY
-    case animateXY
-    case saveToGallery
-    case togglePinchZoom
-    case toggleAutoScaleMinMax
-    case toggleData
-    case toggleBarBorders
-    // CandleChart
-    case toggleShadowColorSameAsCandle
-    // CombinedChart
-    case toggleLineValues
-    case toggleBarValues
-    case removeDataSet
-    // CubicLineSampleFillFormatter
-    case toggleFilled
-    case toggleCircles
-    case toggleCubic
-    case toggleHorizontalCubic
-    case toggleStepped
-    // HalfPieChartController
-    case toggleXValues
-    case togglePercent
-    case toggleHole
-    case spin
-    case drawCenter
-    // RadarChart
-    case toggleXLabels
-    case toggleYLabels
-    case toggleRotate
-    case toggleHighlightCircle
-    
-    var label: String {
-        switch self {
-        case .toggleValues: return "Toggle Y-Values"
-        case .toggleIcons: return "Toggle Icons"
-        case .toggleHighlight: return "Toggle Highlight"
-        case .animateX: return "Animate X"
-        case .animateY: return "Animate Y"
-        case .animateXY: return "Animate XY"
-        case .saveToGallery: return "Save to Camera Roll"
-        case .togglePinchZoom: return "Toggle PinchZoom"
-        case .toggleAutoScaleMinMax: return "Toggle auto scale min/max"
-        case .toggleData: return "Toggle Data"
-        case .toggleBarBorders: return "Toggle Bar Borders"
-        // CandleChart
-        case .toggleShadowColorSameAsCandle: return "Toggle shadow same color"
-        // CombinedChart
-        case .toggleLineValues: return "Toggle Line Values"
-        case .toggleBarValues: return "Toggle Bar Values"
-        case .removeDataSet: return "Remove Random Set"
-        // CubicLineSampleFillFormatter
-        case .toggleFilled: return "Toggle Filled"
-        case .toggleCircles: return "Toggle Circles"
-        case .toggleCubic: return "Toggle Cubic"
-        case .toggleHorizontalCubic: return "Toggle Horizontal Cubic"
-        case .toggleStepped: return "Toggle Stepped"
-        // HalfPieChartController
-        case .toggleXValues: return "Toggle X-Values"
-        case .togglePercent: return "Toggle Percent"
-        case .toggleHole: return "Toggle Hole"
-        case .spin: return "Spin"
-        case .drawCenter: return "Draw CenterText"
-        // RadarChart
-        case .toggleXLabels: return "Toggle X-Labels"
-        case .toggleYLabels: return "Toggle Y-Labels"
-        case .toggleRotate: return "Toggle Rotate"
-        case .toggleHighlightCircle: return "Toggle highlight circle"
-        }
-    }
-}
-
-class MainViewController: UIViewController, ChartViewDelegate {
+class MainViewController: UIViewController {
 
     @IBOutlet var chartView: BarChartView!
-    var options: [Option]!
+    @IBOutlet weak var filterDateButton: UIButton!
     var shouldHideData: Bool = false
-    
+    var xLabels = [String]()
     enum ChartType: Int {
         case day = 0
         case week
@@ -101,6 +25,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialChart()
+        filterDateButton.setTitle("Hôm nay", for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,21 +34,9 @@ class MainViewController: UIViewController, ChartViewDelegate {
     }
     
     func initialChart() {
-        self.options = [.toggleValues,
-                        .toggleHighlight,
-                        .animateX,
-                        .animateY,
-                        .animateXY,
-                        .saveToGallery,
-                        .togglePinchZoom,
-                        .toggleAutoScaleMinMax,
-                        .toggleData,
-                        .toggleBarBorders]
         
-        chartView.delegate = self
-        
+        //chartView.delegate = self
         chartView.chartDescription?.enabled =  false
-        
         chartView.pinchZoomEnabled = false
         chartView.drawBarShadowEnabled = false
         //chart colors
@@ -131,24 +44,24 @@ class MainViewController: UIViewController, ChartViewDelegate {
         chartView.legend.textColor = UIColor(color: Colors.colorWhite, alpha: 50)
         chartView.gridBackgroundColor = UIColor(color: Colors.colorWhite, alpha: 50)
         
-        let l = chartView.legend
-        l.horizontalAlignment = .right
-        l.verticalAlignment = .top
-        l.orientation = .vertical
-        l.drawInside = true
-        l.font = UIFont.robotoLight(size: 8) ?? .systemFont(ofSize: 8, weight: .light)
-        l.yOffset = 10
-        l.xOffset = 10
-        l.yEntrySpace = 0
+        let legend = chartView.legend
+        legend.horizontalAlignment = .right
+        legend.verticalAlignment = .top
+        legend.orientation = .vertical
+        legend.drawInside = true
+        legend.font = UIFont.robotoLight(size: 8) ?? .systemFont(ofSize: 8, weight: .light)
+        legend.yOffset = 10
+        legend.xOffset = 10
+        legend.yEntrySpace = 0
         
         let xAxis = chartView.xAxis
         xAxis.labelFont = UIFont.robotoLight(size: 10) ?? .systemFont(ofSize: 10, weight: .light)
-        xAxis.granularity = 1
         xAxis.centerAxisLabelsEnabled = true
-        xAxis.valueFormatter = WeekAxisValueFormatter()
+        xAxis.valueFormatter = DateValueFormatter()
+        xAxis.granularityEnabled = true
+        xAxis.granularity = 1.0 // only intervals of 1 day
         xAxis.labelTextColor = UIColor(color: Colors.colorWhite, alpha: 50)
         xAxis.labelPosition = .bottom
-        xAxis.forceLabelsEnabled = true
         
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.maximumFractionDigits = 1
@@ -162,28 +75,92 @@ class MainViewController: UIViewController, ChartViewDelegate {
         
         chartView.rightAxis.enabled = false
         
-        self.updateChartData()
+        setDayDataCount(Date(), endDay: nil)
     }
     
-    func updateChartData(count: Int = 7) {
-        if self.shouldHideData {
-            chartView.data = nil
-            return
-        }
+    func setDayDataCount(_ startDay: Date, endDay: Date?) {
+        let groupSpace = 0.08
+        let barSpace = 0.03
+        let barWidth = 0.276
+        // (0.276 + 0.03) * 3 + 0.08 = 1.00 -> interval per "group"
         
-        self.setDataCount(count, range: UInt32(100))
+        let randomMultiplier: UInt32 = 100
+        
+//        let block: (Date) -> BarChartDataEntry = { (date) -> BarChartDataEntry in
+//            return BarChartDataEntry(x: date.timeIntervalSince1970, y: Double(arc4random_uniform(randomMultiplier)))
+//        }
+        
+        //let next7Days = Calendar.current.date(byAdding: .day, value: 7, to: today)!
+//        let next7Days = endDay
+        var numberOfDays = 0
+        var dateRange: DateRange
+        if let endDay = endDay {
+            let component = Calendar.current.dateComponents([.day], from: startDay, to: endDay)
+            if let days = component.day {
+                numberOfDays = days
+            }
+            dateRange = Calendar.current.dateRange(startDate: startDay, endDate: endDay, component: .day, step: 1)
+        }
+        else {
+            dateRange = Calendar.current.dateRange(startDate: startDay, endDate: startDay, component: .day, step: 1)
+        }
+//        let yVals1 = dateRange.map(block)
+//        let yVals2 = dateRange.map(block)
+//        let yVals3 = dateRange.map(block)
+        var yVals1 = [BarChartDataEntry]()
+        var yVals2 = [BarChartDataEntry]()
+        var yVals3 = [BarChartDataEntry]()
+        var i = 0
+        var dateLabels = [String]()
+        for date in dateRange {
+            dateLabels.append(DateUtil.displayDateFormatter().string(from: date))
+            let yval1 = BarChartDataEntry(x: Double(i), y: Double(arc4random_uniform(randomMultiplier)))
+            yVals1.append(yval1)
+            let yval2 = BarChartDataEntry(x: Double(i), y: Double(arc4random_uniform(randomMultiplier)))
+            yVals2.append(yval2)
+            let yval3 = BarChartDataEntry(x: Double(i), y: Double(arc4random_uniform(randomMultiplier)))
+            yVals3.append(yval3)
+            i += 1
+        }
+        (chartView.xAxis.valueFormatter as! DateValueFormatter).labels = dateLabels
+        
+        let set1 = BarChartDataSet(values: yVals1, label: "A")
+        set1.setColor(UIColor.yellow)
+        
+        let set2 = BarChartDataSet(values: yVals2, label: "B")
+        set2.setColor(UIColor.green)
+        
+        let set3 = BarChartDataSet(values: yVals3, label: "C")
+        set3.setColor(UIColor(color: Colors.colorLightBlue))
+        
+        let data = BarChartData(dataSets: [set1, set2, set3])
+        data.setValueFont(UIFont.robotoLight(size: 10))
+        data.setValueTextColor(UIColor(color: Colors.colorWhite, alpha: 50))
+        data.setValueFormatter(LargeValueFormatter())
+        
+        // specify the width each bar should have
+        data.barWidth = barWidth
+        //data.groupBars(fromX: today.timeIntervalSince1970, groupSpace: groupSpace, barSpace: barSpace)
+        data.groupBars(fromX: 0, groupSpace: groupSpace, barSpace: barSpace)
+        
+//        // restrict the x-axis range
+        chartView.xAxis.axisMinimum = 0//today.timeIntervalSince1970
+//        // groupWidthWithGroupSpace(...) is a helper that calculates the width each group needs based on the provided parameters
+        chartView.xAxis.axisMaximum = Double(numberOfDays+1)//next7Days.timeIntervalSince1970
+        
+        chartView.data = data
+        chartView.xAxis.setLabelCount(numberOfDays+1, force: false)
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
     func setDataCount(_ count: Int, range: UInt32) {
-        let groupSpace = 0.08
-        let barSpace = 0.03
-        let barWidth = 0.28
+        let groupSpace = 0.08 //space between groups
+        let barSpace = 0.03 // space between bars
+        let barWidth = 0.276 // width of each bars
         
         let randomMultiplier = range
-        //let groupCount = count//count + 1
         let startValue = 0
-        let endValue = count//startValue + (groupCount-1)
-        chartView.xAxis.setLabelCount(count + 1, force: true)
+        let endValue = count
         
         let block: (Int) -> BarChartDataEntry = { (i) -> BarChartDataEntry in
             return BarChartDataEntry(x: Double(i), y: Double(arc4random_uniform(randomMultiplier)))
@@ -218,32 +195,61 @@ class MainViewController: UIViewController, ChartViewDelegate {
         data.groupBars(fromX: Double(startValue), groupSpace: groupSpace, barSpace: barSpace)
         
         chartView.data = data
+        chartView.xAxis.setLabelCount(count + 1, force: false)
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
 
     @IBAction func changeChartType(_ sender: UISegmentedControl) {
         var chartFormater: IAxisValueFormatter?
-        var count = 7
+        var count = 1
+        var title = "Hôm nay"
         switch ChartType(rawValue: sender.selectedSegmentIndex)! {
         case .day:
-            count = 10
+            count = 1
+            title = "Hôm nay"
+            xLabels = ["Hôm nay"]
             break
         case .week:
             chartFormater = WeekAxisValueFormatter()
             count = 7
+            xLabels = (chartFormater as! WeekAxisValueFormatter).daysInWeek
+            title = "Tuần này"
             break
         case .month:
-            chartFormater = MonthAxisValueFormatter()
-            count = 4
+            chartFormater = DateValueFormatter()
+            title = "Tháng này"
             break
         case .year:
             chartFormater = YearAxisValueFormatter()
             count = 12
+            title = "Năm này"
             break
         }
+        filterDateButton.setTitle(title, for: .normal)
         chartView.xAxis.valueFormatter = chartFormater
-        updateChartData(count: count)
+        if chartFormater is DateValueFormatter {
+            setDayDataCount(Date().startOfMonth(), endDay: Date().endOfMonth())
+        }
+        else {
+            setDataCount(count, range: UInt32(100))
+        }
     }
+    
+    //Start to update filter date
+    func updateFilterDate(fromDate: Date?, toDate: Date?) {
+        guard let fromDate = fromDate, let toDate = toDate  else {
+            return
+        }
+        guard NSCalendar.current.compare(fromDate, to: toDate, toGranularity: .day) == .orderedAscending else {
+            return
+        }
+        print("started to update date: \(fromDate.toString()) - to date: \(toDate.toString())")
+        filterDateButton.setTitle("từ \(fromDate.toString(dateStyle: .short, timeStyle: .none)) đến \(toDate.toString(dateStyle: .short, timeStyle: .none))", for: .normal)
+        chartView.xAxis.valueFormatter = DateValueFormatter()
+        setDayDataCount(fromDate, endDay: toDate)
+    }
+    
+    @IBAction func backToPreviousViewController(segue:UIStoryboardSegue) { }
     
     /*
     // MARK: - Navigation
@@ -256,3 +262,4 @@ class MainViewController: UIViewController, ChartViewDelegate {
     */
 
 }
+
