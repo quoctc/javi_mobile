@@ -139,6 +139,8 @@ extension Date {
             dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
         case .atom:
             dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        case .firebase:
+            dateFormat = "M/d/yyyy HH:mm:ss"
         case .custom(let string):
             dateFormat = string
         }

@@ -10,6 +10,7 @@ import UIKit
 
 enum DateFormat {
     case iso8601, rfc822, incompleteRFC822, atom
+    case firebase
     case custom(String)
     
     func stringValue() -> String {
@@ -23,6 +24,8 @@ enum DateFormat {
             dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
         case .atom:
             dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        case .firebase:
+            dateFormat = "M/d/yyyy HH:mm:ss"
         case .custom(let string):
             dateFormat = string
         }
@@ -45,12 +48,32 @@ class DateUtil {
 }
 
 extension Date {
+    func startOfWeek() -> Date? {
+        let gregorian = Calendar(identifier: .gregorian)
+        guard let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else { return nil }
+        return gregorian.date(byAdding: .day, value: 1, to: sunday)
+    }
+    
+    func endOfWeek() -> Date? {
+        let gregorian = Calendar(identifier: .gregorian)
+        guard let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else { return nil }
+        return gregorian.date(byAdding: .day, value: 7, to: sunday)
+    }
+    
     func startOfMonth() -> Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
     }
     
     func endOfMonth() -> Date {
         return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
+    }
+    
+    func startOfYear() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year], from: Calendar.current.startOfDay(for: self)))!
+    }
+    
+    func endOfYear() -> Date {
+        return Calendar.current.date(byAdding: DateComponents(year: 1, day: -1), to: self.startOfYear())!
     }
 }
 

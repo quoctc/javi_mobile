@@ -39,12 +39,12 @@ extension SegueHandler where Self:UIViewController, SegueIdentifier.RawValue == 
 extension MainViewController: SegueHandler {
     enum SegueIdentifier: String {
         case SegueUndefined
-        case SegueMenuToLogIn
-        case SegueMapToMarkASpace
-        case SegueMapToEditPin
-        case SegueMapToPinDetail
-        case SegueMapToChat
-        case SegueMapToChatList
-        case SegueMarkASpaceToAddCrossStreet
+    }
+}
+
+extension LoginViewController: SegueHandler {
+    enum SegueIdentifier: String {
+        case SegueUndefined
+        case SegueLoginToMain
     }
 }

@@ -140,3 +140,33 @@ extension UIImage {
         return newImage
     }
 }
+
+extension UIViewController {
+    func showSimpleAlert(title: String?, message: String?, handler: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            handler?()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showConfirmAlert(title: String, message: String, titleButtonCancel: String, titleButtonOk: String, handlerCancel: (() -> Void)?, handlerOK: (() -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: titleButtonOk, style: .destructive, handler: { (_) in
+            if handlerOK != nil {
+                handlerOK!()
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: titleButtonCancel, style: .default, handler: { (_) in
+            if handlerCancel != nil {
+                handlerCancel!()
+            }
+            else {
+                alert.dismiss(animated: true, completion: nil)
+            }
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}

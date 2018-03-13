@@ -77,7 +77,7 @@
                                 <rect key="frame" x="16" y="448" width="343" height="40"/>
                                 <state key="normal" image="no_account_button"/>
                                 <connections>
-                                    <segue destination="kG5-db-sAe" kind="show" id="ED0-4U-z0I"/>
+                                    <action selector="skipLoginTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VbO-MT-Qoc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,6 +114,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="mSH-pV-dGH" id="GsP-hE-mGQ"/>
                         <outlet property="passwordTextField" destination="0ZB-zA-7Bs" id="Ag9-Db-hTb"/>
+                        <segue destination="kG5-db-sAe" kind="show" identifier="SegueLoginToMain" id="Ysc-aO-rSr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
