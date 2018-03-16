@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     var shouldHideData: Bool = false
     var xLabels = [String]()
     
+    var isFirstTime = true
+    
     /// types of chart (use for filter)
     ///
     /// - day
@@ -383,7 +385,17 @@ class MainViewController: UIViewController {
                 completion(data)
                 break
             case .Failure(let error):
+                if self?.isFirstTime ?? true {
+                    self?.isFirstTime = false
+                    return
+                }
                 completion(nil)
+                if let error = error as? APIError {
+                    if error == APIError.noConnected {
+                        self?.showSimpleAlert(title: "Lỗi", message: "Không có kết nối!")
+                        return
+                    }
+                }
                 self?.showSimpleAlert(title: "Error", message: error.localizedDescription)
             }
         }

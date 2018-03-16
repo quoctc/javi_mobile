@@ -21,6 +21,11 @@ protocol Settable {
     func setObjectsForKeys(keyedValues: [String: Any], completionHandler: @escaping (Result<T>) -> Void)
 }
 
+enum APIError: Error {
+    case normal
+    case noConnected
+}
+
 enum Result<T> {
     case Success(T)
     case Failure(Error)
@@ -55,23 +60,31 @@ struct DataService: Gettable {
         print(startDateTimeStamp)
         print(endDateTimeStamp)
         //1457423649 - 1520495650 worked
-        ref.queryOrdered(byChild: "time_stamp").queryStarting(atValue: startDateTimeStamp).queryEnding(atValue: endDateTimeStamp).observe(.value) { (snapshot) in
-            if let sensorDataArray = snapshot.value as? NSArray {
-                let noneNullArray = sensorDataArray.filter({ (item) -> Bool in
-                    return !(item is NSNull)
-                })
-                completionHandler(Result.Success(Sensor.decodeArrayOf(source: noneNullArray)))
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            if let connected = snapshot.value as? Bool, connected == true {
+                self.ref.queryOrdered(byChild: "time_stamp").queryStarting(atValue: startDateTimeStamp).queryEnding(atValue: endDateTimeStamp).observe(.value) { (snapshot) in
+                    if let sensorDataArray = snapshot.value as? NSArray {
+                        let noneNullArray = sensorDataArray.filter({ (item) -> Bool in
+                            return !(item is NSNull)
+                        })
+                        completionHandler(Result.Success(Sensor.decodeArrayOf(source: noneNullArray)))
+                    }
+                    else if let sensorDataDict = snapshot.value as? NSDictionary {
+                        let noneNullArray = sensorDataDict.allValues.filter({ (item) -> Bool in
+                            return !(item is NSNull)
+                        })
+                        completionHandler(Result.Success(Sensor.decodeArrayOf(source: noneNullArray)))
+                    }
+                    else {
+                        completionHandler(Result.Success([Sensor]()))
+                    }
+                }
+            } else {
+                print("Not connected")
+                completionHandler(Result.Failure(APIError.noConnected))
             }
-            else if let sensorDataDict = snapshot.value as? NSDictionary {
-                let noneNullArray = sensorDataDict.allValues.filter({ (item) -> Bool in
-                    return !(item is NSNull)
-                })
-                completionHandler(Result.Success(Sensor.decodeArrayOf(source: noneNullArray)))
-            }
-            else {
-                completionHandler(Result.Success([Sensor]()))
-            }
-        }
+        })
     }
     
     //Get values from firebase with specific key

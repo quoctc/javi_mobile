@@ -16,11 +16,10 @@ public class IntAxisValueFormatter: NSObject, IAxisValueFormatter {
 }
 
 public class DateValueFormatter: NSObject, IAxisValueFormatter {
-    private let dateFormatter = DateFormatter()
+    private let dateFormatter = DateUtil.displayDateFormatter()
     public var labels = [String]()
     override init() {
         super.init()
-        dateFormatter.dateFormat = "dd/MM"
     }
     
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
