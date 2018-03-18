@@ -60,9 +60,9 @@ struct DataService: Gettable {
         print(startDateTimeStamp)
         print(endDateTimeStamp)
         //1457423649 - 1520495650 worked
-        let connectedRef = Database.database().reference(withPath: ".info/connected")
-        connectedRef.observe(.value, with: { snapshot in
-            if let connected = snapshot.value as? Bool, connected == true {
+//        let connectedRef = Database.database().reference(withPath: ".info/connected")
+//        connectedRef.observe(.value, with: { snapshot in
+//            if let connected = snapshot.value as? Bool, connected == true {
                 self.ref.queryOrdered(byChild: "time_stamp").queryStarting(atValue: startDateTimeStamp).queryEnding(atValue: endDateTimeStamp).observe(.value) { (snapshot) in
                     if let sensorDataArray = snapshot.value as? NSArray {
                         let noneNullArray = sensorDataArray.filter({ (item) -> Bool in
@@ -80,11 +80,11 @@ struct DataService: Gettable {
                         completionHandler(Result.Success([Sensor]()))
                     }
                 }
-            } else {
-                print("Not connected")
-                completionHandler(Result.Failure(APIError.noConnected))
-            }
-        })
+//            } else {
+//                print("Not connected")
+//                completionHandler(Result.Failure(APIError.noConnected))
+//            }
+//        })
     }
     
     //Get values from firebase with specific key

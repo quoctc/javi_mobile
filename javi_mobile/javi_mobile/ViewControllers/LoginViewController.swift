@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         if Auth.auth().currentUser != nil {
             self.perform(segue: .SegueLoginToMain, sender: nil)
         }
@@ -46,12 +45,30 @@ class LoginViewController: UIViewController {
     @IBAction func skipLoginTouched(sender: UIButton) {
         let loadingHud = MBProgressHUD.showAdded(to: self.view, animated: false)
         Auth.auth().signIn(withEmail: "quoctc@gmail.com", password: "12332100") { [weak self] (user, error) in
-            loadingHud.hide(animated: false)
-            if error == nil {
-                self?.perform(segue: .SegueLoginToMain, sender: nil)
-            }
-            else {
-                self?.showSimpleAlert(title: "Error", message: error?.localizedDescription, handler: nil)
+            self?.getData(fromService: DataService(), completion: { data in
+                print("total data: \(data?.count ?? 0)")
+                loadingHud.hide(animated: false)
+                if error == nil {
+                    self?.perform(segue: .SegueLoginToMain, sender: nil)
+                }
+                else {
+                    self?.showSimpleAlert(title: "Error", message: error?.localizedDescription, handler: nil)
+                }
+            })
+        }
+    }
+    
+    private func getData(fromService service: DataService, completion: @escaping (_ data: [Sensor]?)->Void) {
+        let loadingHud = MBProgressHUD.showAdded(to: self.view, animated: false)
+        print("get all date")
+        service.get { [weak self] (result) in
+            loadingHud.hide(animated: true)
+            switch result {
+             case .Success( let data ):
+                completion(data)
+            case .Failure( let error ):
+                self?.showSimpleAlert(title: "Error", message: error.localizedDescription, handler: nil)
+                completion(nil)
             }
         }
     }
