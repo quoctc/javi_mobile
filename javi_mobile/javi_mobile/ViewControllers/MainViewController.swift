@@ -48,10 +48,10 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         initialChart()
         filterDateButton.setTitle("Hôm nay", for: .normal)
-        self.getData(fromService: DataService(), fromDate: Date(), toDate: Date()) { [weak self] (data) in
+        self.getData(fromService: DataService(), fromDate: Date().startOfDay, toDate: Date().endOfDay) { [weak self] (data) in
             //group data by day
             if let data = data, let dataDict = self?.groupData(by: .day, data: data) {
-                self?.setDayDataCount(data: dataDict, startDay: Date(), endDay: nil)
+                self?.setDayDataCount(data: dataDict, startDay: Date().startOfDay, endDay: nil)
             }
         }
     }
@@ -253,8 +253,8 @@ class MainViewController: UIViewController {
         var chartFormater: IAxisValueFormatter?
         var count = 1
         var title = "Hôm nay"
-        var startDate = Date()
-        var endDate = Date()
+        var startDate = Date().startOfDay
+        var endDate = Date().endOfDay
         let selectedType = ChartType(rawValue: sender.selectedSegmentIndex)!
         switch selectedType {
         case .day:
@@ -262,8 +262,8 @@ class MainViewController: UIViewController {
             count = 1
             title = "Hôm nay"
             xLabels = ["Hôm nay"]
-            startDate = Date()
-            endDate = Date()
+            startDate = Date().startOfDay
+            endDate = Date().endOfDay
             break
         case .week:
             chartFormater = WeekAxisValueFormatter()
