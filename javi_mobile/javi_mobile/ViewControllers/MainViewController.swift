@@ -270,21 +270,21 @@ class MainViewController: UIViewController {
             count = 7
             xLabels = (chartFormater as! WeekAxisValueFormatter).daysInWeek
             title = "Tuần này"
-            startDate = Date().startOfWeek() ?? Date()
-            endDate = Date().endOfWeek() ?? Date()
+            startDate = Date().startOfWeek()?.startOfDay ?? Date()
+            endDate = Date().endOfWeek()?.endOfDay ?? Date()
             break
         case .month:
             chartFormater = DateValueFormatter()
             title = "Tháng này"
-            startDate = Date().startOfMonth()
-            endDate = Date().endOfMonth()
+            startDate = Date().startOfMonth().startOfDay
+            endDate = Date().endOfMonth().endOfDay
             break
         case .year:
             chartFormater = YearAxisValueFormatter()
             count = 12
             title = "Năm này"
-            startDate = Date().startOfYear()
-            endDate = Date().endOfYear()
+            startDate = Date().startOfYear().startOfDay
+            endDate = Date().endOfYear().endOfDay
             break
         case .custom:
             chartFormater = DateValueFormatter()
@@ -353,9 +353,9 @@ class MainViewController: UIViewController {
                         key = String(month)
                     break
                     case .week:
-                        let gregorian = Calendar(identifier: .gregorian)
-                        let weekday = gregorian.component(.weekday, from: date)//Calendar.current.component(.weekday, from: date)
-                        key = String(weekday-1) //because monday is 2 is the first day
+                        if let startDayInWeek = date.startOfWeek()?.startOfDay, let daysInWeek = Calendar.current.dateComponents([.day], from: startDayInWeek, to: date).day {
+                            key = String(daysInWeek + 1)
+                        }
                     break
                     default:
                     break
