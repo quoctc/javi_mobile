@@ -169,7 +169,7 @@ class MainViewController: UIViewController {
         set3.setColor(UIColor(color: Colors.colorLightBlue))
         
         let data = BarChartData(dataSets: [set1, set2, set3])
-        data.setValueFont(UIFont.robotoLight(size: 6))
+        data.setValueFont(UIFont.robotoLight(size: 7))
         data.setValueTextColor(UIColor(color: Colors.colorWhite, alpha: 50))
         data.setValueFormatter(LargeValueFormatter())
         
@@ -241,7 +241,7 @@ class MainViewController: UIViewController {
         set3.setColor(UIColor(color: Colors.colorLightBlue))
         
         let data = BarChartData(dataSets: [set1, set2, set3])
-        data.setValueFont(UIFont.robotoLight(size: 6))
+        data.setValueFont(UIFont.robotoLight(size: 7))
         data.setValueTextColor(UIColor(color: Colors.colorWhite, alpha: 50))
         data.setValueFormatter(LargeValueFormatter())
         
