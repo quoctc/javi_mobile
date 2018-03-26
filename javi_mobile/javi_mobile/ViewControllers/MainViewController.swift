@@ -70,6 +70,7 @@ class MainViewController: UIViewController {
         chartView.drawBarShadowEnabled = false
         
         chartView.maxVisibleCount = 50
+        chartView.delegate = self
         
         //chart colors
         chartView.backgroundColor = UIColor.black
@@ -134,16 +135,16 @@ class MainViewController: UIViewController {
         var i = 0
         var dateLabels = [String]()
         for date in dateRange {
-            let day = Calendar.current.component(.day, from: date)
+            //let day = Calendar.current.component(.day, from: date)
             dateLabels.append(DateUtil.displayDateFormatter().string(from: date))
-
-            let countAInDay = data[String(day)]?.filter({ $0.type == "a" }).reduce(0, { (result, sensor) -> Int in
+            let key = DateUtil.displayDateFormatter().string(from: date)
+            let countAInDay = data[key]?.filter({ $0.type == "a" }).reduce(0, { (result, sensor) -> Int in
                 result + (sensor.value ?? 0)
             }) ?? 0
-            let countBInDay = data[String(day)]?.filter({ $0.type == "b" }).reduce(0, { (result, sensor) -> Int in
+            let countBInDay = data[key]?.filter({ $0.type == "b" }).reduce(0, { (result, sensor) -> Int in
                 result + (sensor.value ?? 0)
             }) ?? 0
-            let countCInDay = data[String(day)]?.filter({ $0.type == "c" }).reduce(0, { (result, sensor) -> Int in
+            let countCInDay = data[key]?.filter({ $0.type == "c" }).reduce(0, { (result, sensor) -> Int in
                 result + (sensor.value ?? 0)
             }) ?? 0
             
@@ -183,7 +184,16 @@ class MainViewController: UIViewController {
         chartView.xAxis.axisMaximum = Double(numberOfDays+1)//next7Days.timeIntervalSince1970
         
         chartView.data = data // add data to chart
-        chartView.xAxis.setLabelCount(numberOfDays+1, force: false) //add x axis label to chart
+        
+        if numberOfDays > 12 {
+            //Custome
+            chartView.xAxis.centerAxisLabelsEnabled = false
+        }
+        else {
+            chartView.xAxis.centerAxisLabelsEnabled = true
+            chartView.xAxis.setLabelCount(numberOfDays+1, force: false) //add x axis label to chart
+        }
+        
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0) //start animation to showing the data
     }
     
@@ -348,8 +358,9 @@ class MainViewController: UIViewController {
                 var key = ""
                 switch type {
                     case .day:
-                        let day = Calendar.current.component(.day, from: date)
-                        key = String(day)
+                        //let day = Calendar.current.component(.day, from: date)
+                        //key = String(day)
+                        key = DateUtil.displayDateFormatter().string(from: date)
                     break
                     case .year:
                         let month = Calendar.current.component(.month, from: date)
@@ -414,5 +425,9 @@ class MainViewController: UIViewController {
     }
     */
 
+}
+
+extension MainViewController: ChartViewDelegate {
+    
 }
 
