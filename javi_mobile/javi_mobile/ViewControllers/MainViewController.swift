@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var filterDateButton: UIButton! //button to filter chart data
     var shouldHideData: Bool = false
     var xLabels = [String]()
-    
     var isFirstTime = true
     
     /// types of chart (use for filter)
@@ -34,6 +33,7 @@ class MainViewController: UIViewController {
         case custom
     }
     
+    var currentChartType: ChartType = .day
     /// settings for chart
     struct mapSettings {
         static let groupSpace = 0.08
@@ -41,6 +41,7 @@ class MainViewController: UIViewController {
         static let barWidth = 0.276 // (0.276 + 0.03) * 3 + 0.08 = 1.00 -> interval per "group"
     }
     
+    @IBOutlet weak var segmentQuickFilter: UISegmentedControl!
     var selectedChartType: ChartType = .day
     var filteredDates: [Date] = [Date]()
     
@@ -269,6 +270,7 @@ class MainViewController: UIViewController {
         var startDate = Date().startOfDay
         var endDate = Date().endOfDay
         let selectedType = ChartType(rawValue: sender.selectedSegmentIndex)!
+        selectedChartType = selectedType
         switch selectedType {
         case .day:
             chartFormater = DateValueFormatter()
@@ -385,6 +387,11 @@ class MainViewController: UIViewController {
         }
         return dataDict
     }
+    
+    @IBAction func touchRefreshBtn(_ sender: Any) {
+        self.changeChartType(segmentQuickFilter)
+    }
+    
     
     @IBAction func backToPreviousViewController(segue:UIStoryboardSegue) { }
     

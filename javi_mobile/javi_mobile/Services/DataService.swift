@@ -63,7 +63,7 @@ struct DataService: Gettable {
 //        let connectedRef = Database.database().reference(withPath: ".info/connected")
 //        connectedRef.observe(.value, with: { snapshot in
 //            if let connected = snapshot.value as? Bool, connected == true {
-                self.ref.queryOrdered(byChild: "time_stamp").queryStarting(atValue: startDateTimeStamp).queryEnding(atValue: endDateTimeStamp).observe(.value) { (snapshot) in
+                self.ref.queryOrdered(byChild: "time_stamp").queryStarting(atValue: startDateTimeStamp).queryEnding(atValue: endDateTimeStamp).observeSingleEvent(of: .value) { (snapshot) in
                     if let sensorDataArray = snapshot.value as? NSArray {
                         let noneNullArray = sensorDataArray.filter({ (item) -> Bool in
                             return !(item is NSNull)

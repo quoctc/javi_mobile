@@ -267,6 +267,17 @@
                                     <constraint firstItem="PVG-VL-XW2" firstAttribute="top" secondItem="FC3-wW-Onu" secondAttribute="top" id="s4N-AD-uQc"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnr-d6-div">
+                                <rect key="frame" x="315" y="18" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="XM9-yc-DcY"/>
+                                    <constraint firstAttribute="height" constant="44" id="loX-0z-p4H"/>
+                                </constraints>
+                                <state key="normal" image="icon_refresh"/>
+                                <connections>
+                                    <action selector="touchRefreshBtn:" destination="99U-kT-LZH" eventType="touchUpInside" id="La1-db-XTM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -275,9 +286,11 @@
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="bottom" secondItem="Zap-CN-Vwr" secondAttribute="bottom" id="G7D-jh-h4r"/>
                             <constraint firstItem="PVG-VL-XW2" firstAttribute="height" secondItem="XxE-eC-EPC" secondAttribute="height" id="MZa-CI-OMj"/>
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="leading" secondItem="Zap-CN-Vwr" secondAttribute="leading" id="Vz2-Zh-3aw"/>
+                            <constraint firstItem="Zap-CN-Vwr" firstAttribute="trailing" secondItem="mnr-d6-div" secondAttribute="trailing" constant="16" id="bet-HS-n0f"/>
                             <constraint firstItem="vAx-yP-VFk" firstAttribute="width" secondItem="XxE-eC-EPC" secondAttribute="height" multiplier="349:667" id="gZI-6h-IcO"/>
                             <constraint firstItem="Zap-CN-Vwr" firstAttribute="trailing" secondItem="Oyf-TG-Knn" secondAttribute="trailing" constant="16" id="jxF-nu-ggN"/>
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="top" secondItem="Oyf-TG-Knn" secondAttribute="bottom" constant="8" id="lJM-qH-ZdS"/>
+                            <constraint firstItem="mnr-d6-div" firstAttribute="centerY" secondItem="Oyf-TG-Knn" secondAttribute="centerY" id="vcn-3C-v2e"/>
                             <constraint firstItem="FC3-wW-Onu" firstAttribute="trailing" secondItem="Zap-CN-Vwr" secondAttribute="trailing" id="yFd-mE-0ac"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zap-CN-Vwr"/>
@@ -286,6 +299,7 @@
                     <connections>
                         <outlet property="chartView" destination="VDP-a0-Qs0" id="BGC-XC-tLf"/>
                         <outlet property="filterDateButton" destination="ouw-f1-LxP" id="pfW-JU-4MI"/>
+                        <outlet property="segmentQuickFilter" destination="vAx-yP-VFk" id="hDp-7f-aIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GX-TT-r3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,6 +484,7 @@
         <image name="bar_chart_icon" width="25" height="25"/>
         <image name="button_bg" width="17" height="40"/>
         <image name="close_button_icon" width="64" height="52"/>
+        <image name="icon_refresh" width="27" height="28"/>
         <image name="no_account_button" width="131" height="17"/>
     </resources>
 </document>
