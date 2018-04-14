@@ -13,8 +13,10 @@ import MBProgressHUD
 class MainViewController: UIViewController {
 
     @IBOutlet var chartView: BarChartView! //view to show chart data
+    @IBOutlet weak var hoursChartView: UIView!
     @IBOutlet weak var ledSwitch: UISwitch!
     @IBOutlet weak var filterDateButton: UIButton! //button to filter chart data
+    
     var shouldHideData: Bool = false
     var xLabels = [String]()
     var isFirstTime = true
@@ -45,6 +47,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var segmentQuickFilter: UISegmentedControl!
     var selectedChartType: ChartType = .day
     var filteredDates: [Date] = [Date]()
+    
+    var hoursChartViewController: HoursBarChartViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -283,6 +287,7 @@ class MainViewController: UIViewController {
 
     //quick filter action
     @IBAction func changeChartType(_ sender: UISegmentedControl) {
+        switchToDateChart(isShowDateChar: true)
         var chartFormater: IAxisValueFormatter?
         var count = 1
         var title = "Hôm nay"
@@ -344,6 +349,8 @@ class MainViewController: UIViewController {
     
     //Start to update filter date
     func updateFilterDate(fromDate: Date?, toDate: Date?) {
+        switchToDateChart(isShowDateChar: true)
+        
         guard let fromDate = fromDate, let toDate = toDate  else {
             return
         }
@@ -356,13 +363,41 @@ class MainViewController: UIViewController {
             //prepare chart UI
             self?.filteredDates = [fromDate, toDate]
             self?.selectedChartType = .custom
-            self?.filterDateButton.setTitle("từ \(fromDate.toString(dateStyle: .short, timeStyle: .none)) đến \(toDate.toString(dateStyle: .short, timeStyle: .none))", for: .normal)
+            self?.filterDateButton.setTitle("Từ \(fromDate.toString(dateStyle: .short, timeStyle: .none)) đến \(toDate.toString(dateStyle: .short, timeStyle: .none))", for: .normal)
             self?.chartView.xAxis.valueFormatter = DateValueFormatter()
             //group data by day
             if let data = data, let dataDict = self?.groupData(by: .day, data: data) {
                 self?.setDayDataCount(data: dataDict, startDay: fromDate, endDay: toDate)
             }
         }
+    }
+    
+    //Start to update filter hours
+    func updateFilterHours(date: Date, fromHours: Int, toHours: Int) {
+        switchToDateChart(isShowDateChar: false)
+        
+        let calendar = Calendar.current
+        var fromDateComponent = DateComponents()
+        fromDateComponent.year = calendar.component(.year, from: date)
+        fromDateComponent.month = calendar.component(.month, from: date)
+        fromDateComponent.day = calendar.component(.day, from: date)
+        fromDateComponent.hour = fromHours
+        let fromDate = calendar.date(from: fromDateComponent)
+        
+        var toDateComponent = DateComponents()
+        toDateComponent.year = calendar.component(.year, from: date)
+        toDateComponent.month = calendar.component(.month, from: date)
+        toDateComponent.day = calendar.component(.day, from: date)
+        toDateComponent.hour = toHours
+        let toDate = calendar.date(from: toDateComponent)
+        
+        self.filterDateButton.setTitle("Từ \(DateUtil.displayHoursFormatter().string(from: fromDate!)) đến \(DateUtil.displayHoursFormatter().string(from: toDate!)) của ngày \(DateUtil.displayDateFormatter().string(from: date))", for: .normal)
+        self.hoursChartViewController.reloadDataWith(date: date, fromHours: fromHours, toHours: toHours)
+    }
+    
+    private func switchToDateChart(isShowDateChar: Bool) {
+        self.chartView.isHidden = !isShowDateChar
+        self.hoursChartView.isHidden = !self.chartView.isHidden
     }
     
     /// group data by selected filter type
@@ -423,6 +458,15 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func backToPreviousViewController(segue:UIStoryboardSegue) { }
+    
+    @IBAction func touchFilterBtn(_ sender: Any) {
+        if segmentQuickFilter.selectedSegmentIndex == 0 {
+            self.perform(segue: .SegueMainToSelectHours, sender: nil)
+        } else {
+            self.perform(segue: .SegueMainToSelectDates, sender: nil)
+        }
+    }
+    
     
     //query data with dates
     private func getData(fromService service: DataService, fromDate: Date, toDate: Date, completion: @escaping (_ data: [Sensor]?)->Void) {
@@ -489,15 +533,19 @@ class MainViewController: UIViewController {
         }
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        switch segueIdentifier(for: segue) {
+        case .SegueEmbedHoursBarChart:
+            if let next = segue.destination as? HoursBarChartViewController {
+                self.hoursChartViewController = next
+            }
+        default:
+            break
+        }
     }
-    */
 
 }
 

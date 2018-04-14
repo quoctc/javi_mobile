@@ -31,6 +31,22 @@ public class DateValueFormatter: NSObject, IAxisValueFormatter {
     }
 }
 
+public class HoursValueFormatter: NSObject, IAxisValueFormatter {
+    private let hoursFormatter = DateUtil.displayHoursFormatter()
+    public var labels = [String]()
+    override init() {
+        super.init()
+    }
+    
+    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        guard labels.count > 0 else {
+            return ""
+        }
+        guard value > 0 else { return labels[0] }
+        return labels[Int(value) % labels.count]
+    }
+}
+
 public class YearAxisValueFormatter: NSObject, IAxisValueFormatter {
     var monthsInYear = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {

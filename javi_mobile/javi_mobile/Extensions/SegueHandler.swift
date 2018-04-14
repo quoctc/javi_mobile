@@ -39,6 +39,9 @@ extension SegueHandler where Self:UIViewController, SegueIdentifier.RawValue == 
 extension MainViewController: SegueHandler {
     enum SegueIdentifier: String {
         case SegueUndefined
+        case SegueMainToSelectHours
+        case SegueMainToSelectDates
+        case SegueEmbedHoursBarChart
     }
 }
 
@@ -53,5 +56,17 @@ extension SettingViewController: SegueHandler {
     enum SegueIdentifier: String {
         case SegueUndefined
         case SegueSettingBackToMain
+    }
+}
+
+extension DatePickerViewController: SegueHandler {
+    enum SegueIdentifier: String {
+        case SegueDismissToChart
+    }
+}
+
+extension TimePickerViewController: SegueHandler {
+    enum SegueIdentifier: String {
+        case SegueDismissToChart
     }
 }

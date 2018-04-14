@@ -45,6 +45,12 @@ class DateUtil {
         df.dateFormat = DateFormat.custom("dd/MM").stringValue()
         return df
     }
+    
+    static func displayHoursFormatter() -> DateFormatter {
+        let df = DateFormatter()
+        df.dateFormat = DateFormat.custom("hh a").stringValue()
+        return df
+    }
 }
 
 extension Date {

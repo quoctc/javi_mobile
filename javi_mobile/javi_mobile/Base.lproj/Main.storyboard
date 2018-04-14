@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hkD-iH-zdA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y3B-sy-rty">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -274,6 +274,171 @@
             </objects>
             <point key="canvasLocation" x="2741.5999999999999" y="-649.02548725637189"/>
         </scene>
+        <!--Lọc dữu liệu theo giờ-->
+        <scene sceneID="z3E-OI-BsX">
+            <objects>
+                <viewController title="Lọc dữu liệu theo giờ" id="iUw-gB-H4T" customClass="TimePickerViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oTs-lo-eO5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzy-rO-tEe" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJv-Ii-hKX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <subviews>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UF7-aV-RAJ">
+                                                <rect key="frame" x="0.0" y="37" width="375" height="162"/>
+                                                <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="162" id="Mjc-cg-PYA"/>
+                                                </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="542364603.70826697">
+                                                    <!--2018-03-10 08:50:03 +0000-->
+                                                </date>
+                                                <locale key="locale" localeIdentifier="vi_VN"/>
+                                                <connections>
+                                                    <action selector="didSelectedDate:" destination="Njq-eW-MNA" eventType="valueChanged" id="blv-Y7-61I"/>
+                                                </connections>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn ngày:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIA-1L-F73">
+                                                <rect key="frame" x="16" y="8" width="72" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="wrZ-ue-PZG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="từ giờ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKI-7V-kdt">
+                                                <rect key="frame" x="16" y="215" width="43" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="LtP-1n-Fm5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6F-r9-6Tx" customClass="SALabelTextField" customModule="javi_mobile" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="240" width="343" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="04d-RD-XBk"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đến giờ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aS-aE-VLY">
+                                                <rect key="frame" x="16" y="300" width="52.5" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="UFc-ce-tFk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbd-iS-iNS" customClass="SALabelTextField" customModule="javi_mobile" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="325" width="343" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="APu-8J-hZi"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-kO-8sj">
+                                                <rect key="frame" x="16" y="401" width="343" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="i1E-h9-e6Q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <state key="normal" title="Lọc">
+                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="touchedDoneBtn:" destination="iUw-gB-H4T" eventType="touchUpInside" id="Wdj-F9-ft4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="8aS-aE-VLY" firstAttribute="leading" secondItem="YJv-Ii-hKX" secondAttribute="leading" constant="16" id="06v-Dc-XEP"/>
+                                            <constraint firstAttribute="trailing" secondItem="k6F-r9-6Tx" secondAttribute="trailing" constant="16" id="3MU-In-S9x"/>
+                                            <constraint firstItem="8aS-aE-VLY" firstAttribute="top" secondItem="k6F-r9-6Tx" secondAttribute="bottom" constant="16" id="8af-yw-gP9"/>
+                                            <constraint firstItem="UF7-aV-RAJ" firstAttribute="top" secondItem="MIA-1L-F73" secondAttribute="bottom" constant="8" id="8eS-ic-mWM"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nma-kO-8sj" secondAttribute="trailing" constant="16" id="8pY-8p-sm8"/>
+                                            <constraint firstItem="k6F-r9-6Tx" firstAttribute="top" secondItem="XKI-7V-kdt" secondAttribute="bottom" constant="4" id="B6t-Oz-kU6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fbd-iS-iNS" secondAttribute="trailing" constant="16" id="Psb-sc-Q5G"/>
+                                            <constraint firstItem="XKI-7V-kdt" firstAttribute="leading" secondItem="YJv-Ii-hKX" secondAttribute="leading" constant="16" id="RDA-m9-K4W"/>
+                                            <constraint firstItem="UF7-aV-RAJ" firstAttribute="leading" secondItem="YJv-Ii-hKX" secondAttribute="leading" id="TSM-Zz-orS"/>
+                                            <constraint firstItem="Nma-kO-8sj" firstAttribute="leading" secondItem="YJv-Ii-hKX" secondAttribute="leading" constant="16" id="XeZ-Ec-96V"/>
+                                            <constraint firstItem="Nma-kO-8sj" firstAttribute="top" secondItem="Fbd-iS-iNS" secondAttribute="bottom" constant="32" id="dWF-bD-ygg"/>
+                                            <constraint firstAttribute="trailing" secondItem="UF7-aV-RAJ" secondAttribute="trailing" id="de3-dx-pnp"/>
+                                            <constraint firstItem="Fbd-iS-iNS" firstAttribute="leading" secondItem="YJv-Ii-hKX" secondAttribute="leading" constant="16" id="etS-rT-qzg"/>
+                                            <constraint firstItem="k6F-r9-6Tx" firstAttribute="leading" secondItem="YJv-Ii-hKX" secondAttribute="leading" constant="16" id="hIi-Fc-PHn"/>
+                                            <constraint firstItem="XKI-7V-kdt" firstAttribute="top" secondItem="UF7-aV-RAJ" secondAttribute="bottom" constant="16" id="k69-vN-U6W"/>
+                                            <constraint firstItem="MIA-1L-F73" firstAttribute="top" secondItem="YJv-Ii-hKX" secondAttribute="top" constant="8" id="rH6-CQ-1oR"/>
+                                            <constraint firstItem="Fbd-iS-iNS" firstAttribute="top" secondItem="8aS-aE-VLY" secondAttribute="bottom" constant="4" id="uVw-Xq-ih7"/>
+                                            <constraint firstItem="MIA-1L-F73" firstAttribute="leading" secondItem="YJv-Ii-hKX" secondAttribute="leading" constant="16" id="yCT-fn-L9K"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fbd-iS-iNS" secondAttribute="bottom" constant="8" id="yvR-gp-hHG"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YJv-Ii-hKX" firstAttribute="leading" secondItem="jzy-rO-tEe" secondAttribute="leading" id="1y6-4M-BOB"/>
+                                    <constraint firstItem="YJv-Ii-hKX" firstAttribute="width" secondItem="jzy-rO-tEe" secondAttribute="width" id="6bO-t8-wS5"/>
+                                    <constraint firstItem="YJv-Ii-hKX" firstAttribute="height" secondItem="jzy-rO-tEe" secondAttribute="height" priority="750" id="E1u-da-2zv"/>
+                                    <constraint firstItem="YJv-Ii-hKX" firstAttribute="top" secondItem="jzy-rO-tEe" secondAttribute="top" id="HFk-9q-NVX"/>
+                                    <constraint firstAttribute="trailing" secondItem="YJv-Ii-hKX" secondAttribute="trailing" id="phn-La-uS1"/>
+                                    <constraint firstAttribute="bottom" secondItem="YJv-Ii-hKX" secondAttribute="bottom" id="zBb-0X-7Wd"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I92-Jv-8Tl" firstAttribute="bottom" secondItem="jzy-rO-tEe" secondAttribute="bottom" id="Mf3-TJ-BIJ"/>
+                            <constraint firstItem="jzy-rO-tEe" firstAttribute="trailing" secondItem="I92-Jv-8Tl" secondAttribute="trailing" id="N0w-cj-u9b"/>
+                            <constraint firstItem="jzy-rO-tEe" firstAttribute="top" secondItem="I92-Jv-8Tl" secondAttribute="top" id="Oqt-s3-QUd"/>
+                            <constraint firstItem="jzy-rO-tEe" firstAttribute="leading" secondItem="I92-Jv-8Tl" secondAttribute="leading" id="nc4-Vg-DW0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I92-Jv-8Tl"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="UF7-aV-RAJ" id="PCJ-MF-dFX"/>
+                        <outlet property="filterButton" destination="Nma-kO-8sj" id="Zs7-Ii-ERp"/>
+                        <outlet property="fromHoursTextField" destination="k6F-r9-6Tx" id="dG3-yI-jfA"/>
+                        <outlet property="toHoursTextField" destination="Fbd-iS-iNS" id="bJf-Ct-9lq"/>
+                        <segue destination="Wqg-5h-7Xi" kind="unwind" identifier="SegueDismissToChart" unwindAction="backToPreviousViewControllerWithSegue:" id="2xC-8h-0Mm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5IV-O3-0Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wqg-5h-7Xi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3586.4000000000001" y="-653.52323838080963"/>
+        </scene>
         <!--Chart-->
         <scene sceneID="K3H-sk-ITT">
             <objects>
@@ -315,9 +480,15 @@
                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Njq-eW-MNA" kind="show" id="3fm-4N-5NG"/>
+                                                    <action selector="touchFilterBtn:" destination="99U-kT-LZH" eventType="touchUpInside" id="y1d-ZE-upy"/>
                                                 </connections>
                                             </button>
+                                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-fc-bQG">
+                                                <rect key="frame" x="0.0" y="89" width="375" height="320"/>
+                                                <connections>
+                                                    <segue destination="JrF-If-RgC" kind="embed" identifier="SegueEmbedHoursBarChart" id="Fm6-3g-IC0"/>
+                                                </connections>
+                                            </containerView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDP-a0-Qs0" customClass="BarChartView" customModule="Charts">
                                                 <rect key="frame" x="0.0" y="89" width="375" height="320"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -385,11 +556,15 @@
                                             <constraint firstItem="xai-CI-C0a" firstAttribute="top" secondItem="GbW-5E-Sfw" secondAttribute="bottom" constant="16" id="4wF-dm-xRI"/>
                                             <constraint firstItem="vAx-yP-VFk" firstAttribute="top" secondItem="PVG-VL-XW2" secondAttribute="top" constant="16" id="7x5-Iw-9ws"/>
                                             <constraint firstItem="89x-ev-g0p" firstAttribute="top" secondItem="VDP-a0-Qs0" secondAttribute="bottom" constant="8" id="AR0-Zu-KSM"/>
+                                            <constraint firstAttribute="trailing" secondItem="Aoi-fc-bQG" secondAttribute="trailing" id="BNE-eE-fG3"/>
+                                            <constraint firstItem="Aoi-fc-bQG" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" id="Ccl-CQ-465"/>
                                             <constraint firstItem="89x-ev-g0p" firstAttribute="width" secondItem="PVG-VL-XW2" secondAttribute="height" multiplier="349:667" id="Fqt-Rf-zW2"/>
+                                            <constraint firstItem="Aoi-fc-bQG" firstAttribute="top" secondItem="ouw-f1-LxP" secondAttribute="bottom" constant="8" id="L6T-Ba-xuQ"/>
                                             <constraint firstItem="efC-74-c3S" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" constant="13" id="Noo-wo-7WY"/>
                                             <constraint firstItem="ouw-f1-LxP" firstAttribute="centerX" secondItem="PVG-VL-XW2" secondAttribute="centerX" id="SSP-CP-gN3"/>
                                             <constraint firstAttribute="trailing" secondItem="VDP-a0-Qs0" secondAttribute="trailing" id="Yes-8b-krd"/>
                                             <constraint firstItem="xai-CI-C0a" firstAttribute="width" secondItem="89x-ev-g0p" secondAttribute="width" id="Ytc-H8-U8a"/>
+                                            <constraint firstItem="89x-ev-g0p" firstAttribute="top" secondItem="Aoi-fc-bQG" secondAttribute="bottom" constant="8" id="aQN-z7-RtZ"/>
                                             <constraint firstItem="RZ2-zg-syE" firstAttribute="centerY" secondItem="efC-74-c3S" secondAttribute="centerY" id="bIL-GZ-0VY"/>
                                             <constraint firstItem="89x-ev-g0p" firstAttribute="centerX" secondItem="PVG-VL-XW2" secondAttribute="centerX" id="fYQ-Do-reg"/>
                                             <constraint firstItem="GbW-5E-Sfw" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" constant="13" id="hK5-Wm-L7k"/>
@@ -441,8 +616,11 @@
                     <connections>
                         <outlet property="chartView" destination="VDP-a0-Qs0" id="BGC-XC-tLf"/>
                         <outlet property="filterDateButton" destination="ouw-f1-LxP" id="pfW-JU-4MI"/>
+                        <outlet property="hoursChartView" destination="Aoi-fc-bQG" id="KsY-sN-roW"/>
                         <outlet property="ledSwitch" destination="RZ2-zg-syE" id="18p-Wf-rgp"/>
                         <outlet property="segmentQuickFilter" destination="vAx-yP-VFk" id="hDp-7f-aIp"/>
+                        <segue destination="iUw-gB-H4T" kind="show" identifier="SegueMainToSelectHours" id="bip-u3-C7b"/>
+                        <segue destination="Njq-eW-MNA" kind="show" identifier="SegueMainToSelectDates" id="HsG-65-oMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GX-TT-r3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,6 +796,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLh-5Y-4EU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1870.4000000000001" y="31.484257871064472"/>
+        </scene>
+        <!--Hours Bar Chart View Controller-->
+        <scene sceneID="wab-xG-qqW">
+            <objects>
+                <viewController id="JrF-If-RgC" customClass="HoursBarChartViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TFt-qz-20y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ga7-Ft-b4M" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ga7-Ft-b4M" secondAttribute="trailing" id="OUm-Ev-q7h"/>
+                            <constraint firstItem="ga7-Ft-b4M" firstAttribute="top" secondItem="TFt-qz-20y" secondAttribute="top" id="jtE-8P-4jk"/>
+                            <constraint firstAttribute="bottom" secondItem="ga7-Ft-b4M" secondAttribute="bottom" id="l1a-VS-zFo"/>
+                            <constraint firstItem="ga7-Ft-b4M" firstAttribute="leading" secondItem="TFt-qz-20y" secondAttribute="leading" id="o48-E2-z04"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="ga7-Ft-b4M" id="U9A-h3-Zou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6f-Xu-Odz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3633" y="671"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="htq-Ig-7QF">
+            <objects>
+                <viewController id="y3B-sy-rty" customClass="TestViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KoB-YB-Z9w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="3Fi-ak-V2K">
+                                <rect key="frame" x="0.0" y="157" width="375" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="cG4-LZ-6Zp"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="545391002.07308102">
+                                    <!--2018-04-14 09:30:02 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Fi-ak-V2K" firstAttribute="leading" secondItem="odR-PJ-G1Q" secondAttribute="leading" id="0TA-77-RUL"/>
+                            <constraint firstItem="3Fi-ak-V2K" firstAttribute="top" secondItem="odR-PJ-G1Q" secondAttribute="top" constant="137" id="SJt-Yn-An1"/>
+                            <constraint firstItem="3Fi-ak-V2K" firstAttribute="trailing" secondItem="odR-PJ-G1Q" secondAttribute="trailing" id="aUN-XJ-LAS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="odR-PJ-G1Q"/>
+                    </view>
+                    <connections>
+                        <outlet property="timePicker" destination="3Fi-ak-V2K" id="Kdo-i9-MDq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eu-hU-BKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4224" y="425"/>
         </scene>
     </scenes>
     <resources>

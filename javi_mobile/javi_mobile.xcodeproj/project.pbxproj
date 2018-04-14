@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04012B812053D75A003A136B /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04012B802053D75A003A136B /* DatePickerViewController.swift */; };
+		04A3E4AB2081E9AA0067451E /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */; };
+		04A3E4AD2081EF560067451E /* HoursBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AC2081EF560067451E /* HoursBarChartViewController.swift */; };
+		04A3E4AF208203E40067451E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AE208203E40067451E /* TestViewController.swift */; };
 		04B225AD20804E090031C687 /* SARoundableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225AC20804E090031C687 /* SARoundableButton.swift */; };
 		04B225B020804FDE0031C687 /* SALabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225AF20804FDE0031C687 /* SALabelTextField.swift */; };
 		04B225B2208050260031C687 /* UITextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225B1208050260031C687 /* UITextExtension.swift */; };
@@ -60,6 +63,9 @@
 
 /* Begin PBXFileReference section */
 		04012B802053D75A003A136B /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
+		04A3E4AC2081EF560067451E /* HoursBarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursBarChartViewController.swift; sourceTree = "<group>"; };
+		04A3E4AE208203E40067451E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		04B225AC20804E090031C687 /* SARoundableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SARoundableButton.swift; sourceTree = "<group>"; };
 		04B225AF20804FDE0031C687 /* SALabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALabelTextField.swift; sourceTree = "<group>"; };
 		04B225B1208050260031C687 /* UITextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextExtension.swift; sourceTree = "<group>"; };
@@ -247,8 +253,11 @@
 			children = (
 				04F5FEB42052E6D4001066CB /* LoginViewController.swift */,
 				04F5FEE32052EE71001066CB /* MainViewController.swift */,
+				04A3E4AC2081EF560067451E /* HoursBarChartViewController.swift */,
 				04012B802053D75A003A136B /* DatePickerViewController.swift */,
+				04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */,
 				04EDB1FD207DCB4A0068F93A /* SettingViewController.swift */,
+				04A3E4AE208203E40067451E /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -410,6 +420,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -460,9 +471,11 @@
 			files = (
 				04F5FEF82052EF90001066CB /* AsyncBlockOperation.swift in Sources */,
 				04F5FEF92052EF90001066CB /* DateUtil.swift in Sources */,
+				04A3E4AF208203E40067451E /* TestViewController.swift in Sources */,
 				04B225B020804FDE0031C687 /* SALabelTextField.swift in Sources */,
 				04B46D8420561F2300D89833 /* User.swift in Sources */,
 				04F5FEE42052EE71001066CB /* MainViewController.swift in Sources */,
+				04A3E4AB2081E9AA0067451E /* TimePickerViewController.swift in Sources */,
 				04B46D6620561E1600D89833 /* DataService.swift in Sources */,
 				04F5FF022052FF57001066CB /* IntAxisValueFormatter.swift in Sources */,
 				04F5FEF32052EF50001066CB /* StoryboardHandler.swift in Sources */,
@@ -481,6 +494,7 @@
 				04B46D8020561F2300D89833 /* Sensor.swift in Sources */,
 				04012B812053D75A003A136B /* DatePickerViewController.swift in Sources */,
 				04B225B2208050260031C687 /* UITextExtension.swift in Sources */,
+				04A3E4AD2081EF560067451E /* HoursBarChartViewController.swift in Sources */,
 				04EDB200207DCC620068F93A /* LEDService.swift in Sources */,
 				04F5FEB52052E6D4001066CB /* LoginViewController.swift in Sources */,
 				04B225AD20804E090031C687 /* SARoundableButton.swift in Sources */,

@@ -31,14 +31,6 @@ struct LEDService: Gettable {
                 completionHandler(Result.Failure(APIError.notFound))
             }
         }
-//        ref.queryOrdered(byChild: ledId).observe(.value) { (snapshot) in
-//            if let ledArray = snapshot.value as? NSArray {
-//                completionHandler(Result.Success(LED.decode(source: ledArray.first as AnyObject, instance: nil)))
-//            }
-//            else {
-//                completionHandler(Result.Failure(APIError.notFound))
-//            }
-//        }
     }
     
     func setLEDStatus(ledId: String, value: Bool, completionHandler: @escaping (Result<LED>) -> Void) {

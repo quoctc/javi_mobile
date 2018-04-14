@@ -16,4 +16,5 @@ target 'javi_mobile' do
   pod 'Firebase/Database'
   
   pod 'MBProgressHUD', '~> 1.1'
+  pod 'TPKeyboardAvoiding', '~> 1.3'
 end
