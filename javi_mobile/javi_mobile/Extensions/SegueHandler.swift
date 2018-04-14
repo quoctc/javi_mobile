@@ -48,3 +48,10 @@ extension LoginViewController: SegueHandler {
         case SegueLoginToMain
     }
 }
+
+extension SettingViewController: SegueHandler {
+    enum SegueIdentifier: String {
+        case SegueUndefined
+        case SegueSettingBackToMain
+    }
+}

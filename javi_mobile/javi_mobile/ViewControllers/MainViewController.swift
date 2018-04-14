@@ -13,6 +13,7 @@ import MBProgressHUD
 class MainViewController: UIViewController {
 
     @IBOutlet var chartView: BarChartView! //view to show chart data
+    @IBOutlet weak var ledSwitch: UISwitch!
     @IBOutlet weak var filterDateButton: UIButton! //button to filter chart data
     var shouldHideData: Bool = false
     var xLabels = [String]()
@@ -48,22 +49,16 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialChart()
-        filterDateButton.setTitle("Hôm nay", for: .normal)
-        self.getData(fromService: DataService(), fromDate: Date().startOfDay, toDate: Date().endOfDay) { [weak self] (data) in
-            //group data by day
-            if let data = data, let dataDict = self?.groupData(by: .day, data: data) {
-                self?.setDayDataCount(data: dataDict, startDay: Date().startOfDay, endDay: nil)
-            }
-        }
+        initialLED()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     //Initial chart view at the firstime load
-    func initialChart() {
+    private func initialChart() {
         
         //chartView.delegate = self
         chartView.chartDescription?.enabled =  false
@@ -108,6 +103,30 @@ class MainViewController: UIViewController {
         leftAxis.labelTextColor = UIColor(color: Colors.colorWhite, alpha: 50)
         
         chartView.rightAxis.enabled = false
+        
+        filterDateButton.setTitle("Hôm nay", for: .normal)
+        self.getData(fromService: DataService(), fromDate: Date().startOfDay, toDate: Date().endOfDay) { [weak self] (data) in
+            //group data by day
+            if let data = data, let dataDict = self?.groupData(by: .day, data: data) {
+                self?.setDayDataCount(data: dataDict, startDay: Date().startOfDay, endDay: nil)
+            }
+        }
+    }
+    
+    func updateContentData() {
+        initialLED()
+    }
+    
+    private func initialLED() {
+        guard let ledId = SettingManager.shared.ledId else {
+            return
+        }
+        //Request to get status of LED
+        self.ledSwitch.isEnabled = false
+        getLEDStatus(fromService: LEDService(), ledId: String(ledId)) { [weak self] (status) in
+            self?.ledSwitch.isEnabled = true
+            self?.ledSwitch.isOn = status
+        }
     }
     
     /// filling data to chart - for custome filtered chart type
@@ -388,10 +407,20 @@ class MainViewController: UIViewController {
         return dataDict
     }
     
+    // MARK: - Actions
+    
     @IBAction func touchRefreshBtn(_ sender: Any) {
         self.changeChartType(segmentQuickFilter)
     }
     
+    @IBAction func touchLEDSwitch(_ sender: UISwitch) {
+        guard let ledId = SettingManager.shared.ledId else {
+            return
+        }
+        setLEDStatus(fromService: LEDService(), ledId: String(ledId), value: sender.isOn) { [weak self] (status) in
+            self?.ledSwitch.isOn = status
+        }
+    }
     
     @IBAction func backToPreviousViewController(segue:UIStoryboardSegue) { }
     
@@ -418,6 +447,44 @@ class MainViewController: UIViewController {
                     }
                 }
                 self?.showSimpleAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func setLEDStatus(fromService service: LEDService, ledId: String, value: Bool, completion: @escaping (_ status: Bool)->Void) {
+        service.setLEDStatus(ledId: ledId, value: value) { [weak self] (result) in
+            switch result {
+            case .Success(let led):
+                completion(led.status ?? false)
+                break
+            case .Failure(let error):
+                if let error = error as? APIError {
+                    if error == APIError.noConnected {
+                        self?.showSimpleAlert(title: "Lỗi", message: "Không có kết nối!")
+                        return
+                    }
+                }
+                self?.showSimpleAlert(title: "Error", message: error.localizedDescription)
+                completion(false)
+            }
+        }
+    }
+    
+    private func getLEDStatus(fromService service: LEDService, ledId: String, completion: @escaping (_ status: Bool)->Void) {
+        service.getLEDStatus(ledId: ledId) { [weak self] (result) in
+            switch result {
+            case .Success(let led):
+                completion(led.status ?? false)
+                break
+            case .Failure(let error):
+                if let error = error as? APIError {
+                    if error == APIError.noConnected {
+                        self?.showSimpleAlert(title: "Lỗi", message: "Không có kết nối!")
+                        return
+                    }
+                }
+                self?.showSimpleAlert(title: "Error", message: error.localizedDescription)
+                completion(false)
             }
         }
     }

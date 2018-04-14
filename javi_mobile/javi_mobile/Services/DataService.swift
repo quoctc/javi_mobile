@@ -24,6 +24,7 @@ protocol Settable {
 enum APIError: Error {
     case normal
     case noConnected
+    case notFound
 }
 
 enum Result<T> {

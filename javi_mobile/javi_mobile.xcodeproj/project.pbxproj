@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		04012B812053D75A003A136B /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04012B802053D75A003A136B /* DatePickerViewController.swift */; };
+		04B225AD20804E090031C687 /* SARoundableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225AC20804E090031C687 /* SARoundableButton.swift */; };
+		04B225B020804FDE0031C687 /* SALabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225AF20804FDE0031C687 /* SALabelTextField.swift */; };
+		04B225B2208050260031C687 /* UITextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225B1208050260031C687 /* UITextExtension.swift */; };
+		04B225B4208050710031C687 /* UITextField+FixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225B3208050710031C687 /* UITextField+FixCaretPosition.swift */; };
+		04B225B620805FB90031C687 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225B520805FB90031C687 /* SettingManager.swift */; };
 		04B46D54205532B200D89833 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D53205532B200D89833 /* DateRange.swift */; };
 		04B46D6620561E1600D89833 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D5B20561E1600D89833 /* DataService.swift */; };
 		04B46D7A20561F2300D89833 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D6E20561F2300D89833 /* BaseModel.swift */; };
@@ -15,6 +20,9 @@
 		04B46D8120561F2300D89833 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D7520561F2300D89833 /* Models.swift */; };
 		04B46D8420561F2300D89833 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D7820561F2300D89833 /* User.swift */; };
 		04B46D86205630B800D89833 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D85205630B800D89833 /* BalloonMarker.swift */; };
+		04EDB1FE207DCB4A0068F93A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDB1FD207DCB4A0068F93A /* SettingViewController.swift */; };
+		04EDB200207DCC620068F93A /* LEDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDB1FF207DCC620068F93A /* LEDService.swift */; };
+		04EDB202207DCCB50068F93A /* LED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDB201207DCCB50068F93A /* LED.swift */; };
 		04F5FEB32052E6D4001066CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FEB22052E6D4001066CB /* AppDelegate.swift */; };
 		04F5FEB52052E6D4001066CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5FEB42052E6D4001066CB /* LoginViewController.swift */; };
 		04F5FEB82052E6D4001066CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F5FEB62052E6D4001066CB /* Main.storyboard */; };
@@ -52,6 +60,11 @@
 
 /* Begin PBXFileReference section */
 		04012B802053D75A003A136B /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		04B225AC20804E090031C687 /* SARoundableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SARoundableButton.swift; sourceTree = "<group>"; };
+		04B225AF20804FDE0031C687 /* SALabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALabelTextField.swift; sourceTree = "<group>"; };
+		04B225B1208050260031C687 /* UITextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextExtension.swift; sourceTree = "<group>"; };
+		04B225B3208050710031C687 /* UITextField+FixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+FixCaretPosition.swift"; sourceTree = "<group>"; };
+		04B225B520805FB90031C687 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		04B46D53205532B200D89833 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		04B46D5B20561E1600D89833 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		04B46D6E20561F2300D89833 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -59,6 +72,9 @@
 		04B46D7520561F2300D89833 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		04B46D7820561F2300D89833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04B46D85205630B800D89833 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
+		04EDB1FD207DCB4A0068F93A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		04EDB1FF207DCC620068F93A /* LEDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDService.swift; sourceTree = "<group>"; };
+		04EDB201207DCCB50068F93A /* LED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LED.swift; sourceTree = "<group>"; };
 		04F5FEAF2052E6D4001066CB /* javi_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = javi_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F5FEB22052E6D4001066CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F5FEB42052E6D4001066CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -110,10 +126,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04B225AB20804E090031C687 /* UIButtons */ = {
+			isa = PBXGroup;
+			children = (
+				04B225AC20804E090031C687 /* SARoundableButton.swift */,
+			);
+			path = UIButtons;
+			sourceTree = "<group>";
+		};
+		04B225AE20804FC90031C687 /* UITextFields */ = {
+			isa = PBXGroup;
+			children = (
+				04B225AF20804FDE0031C687 /* SALabelTextField.swift */,
+				04B225B1208050260031C687 /* UITextExtension.swift */,
+				04B225B3208050710031C687 /* UITextField+FixCaretPosition.swift */,
+			);
+			path = UITextFields;
+			sourceTree = "<group>";
+		};
+		04B225B8208063900031C687 /* CustomizeUIs */ = {
+			isa = PBXGroup;
+			children = (
+				04F5FEFB2052F027001066CB /* UIFonts */,
+				04B225AE20804FC90031C687 /* UITextFields */,
+				04B225AB20804E090031C687 /* UIButtons */,
+			);
+			path = CustomizeUIs;
+			sourceTree = "<group>";
+		};
 		04B46D5520561E1600D89833 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				04B46D6C20561F2300D89833 /* Models */,
 				04B46D5B20561E1600D89833 /* DataService.swift */,
+				04EDB1FF207DCC620068F93A /* LEDService.swift */,
+				04B225B520805FB90031C687 /* SettingManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -125,6 +172,7 @@
 				04B46D7420561F2300D89833 /* Sensor.swift */,
 				04B46D7520561F2300D89833 /* Models.swift */,
 				04B46D7820561F2300D89833 /* User.swift */,
+				04EDB201207DCCB50068F93A /* LED.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,9 +198,8 @@
 		04F5FEB12052E6D4001066CB /* javi_mobile */ = {
 			isa = PBXGroup;
 			children = (
-				04B46D6C20561F2300D89833 /* Models */,
+				04B225B8208063900031C687 /* CustomizeUIs */,
 				04B46D5520561E1600D89833 /* Services */,
-				04F5FEFB2052F027001066CB /* UIFonts */,
 				04F5FEF42052EF90001066CB /* Utils */,
 				04F5FEE52052EF50001066CB /* Extensions */,
 				04F5FEE22052EE52001066CB /* ViewControllers */,
@@ -201,6 +248,7 @@
 				04F5FEB42052E6D4001066CB /* LoginViewController.swift */,
 				04F5FEE32052EE71001066CB /* MainViewController.swift */,
 				04012B802053D75A003A136B /* DatePickerViewController.swift */,
+				04EDB1FD207DCB4A0068F93A /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -412,6 +460,7 @@
 			files = (
 				04F5FEF82052EF90001066CB /* AsyncBlockOperation.swift in Sources */,
 				04F5FEF92052EF90001066CB /* DateUtil.swift in Sources */,
+				04B225B020804FDE0031C687 /* SALabelTextField.swift in Sources */,
 				04B46D8420561F2300D89833 /* User.swift in Sources */,
 				04F5FEE42052EE71001066CB /* MainViewController.swift in Sources */,
 				04B46D6620561E1600D89833 /* DataService.swift in Sources */,
@@ -421,14 +470,21 @@
 				04F5FEFA2052EF90001066CB /* MapUtil.swift in Sources */,
 				04F5FEEF2052EF50001066CB /* Extensions.swift in Sources */,
 				04B46D7A20561F2300D89833 /* BaseModel.swift in Sources */,
+				04EDB1FE207DCB4A0068F93A /* SettingViewController.swift in Sources */,
 				04F5FF002052FF41001066CB /* LargeValueFormatter.swift in Sources */,
 				04B46D86205630B800D89833 /* BalloonMarker.swift in Sources */,
 				04F5FEF02052EF50001066CB /* NotificationHandler.swift in Sources */,
+				04B225B4208050710031C687 /* UITextField+FixCaretPosition.swift in Sources */,
+				04B225B620805FB90031C687 /* SettingManager.swift in Sources */,
 				04F5FEEE2052EF50001066CB /* DateExtension.swift in Sources */,
 				04F5FEF12052EF50001066CB /* SegueHandler.swift in Sources */,
 				04B46D8020561F2300D89833 /* Sensor.swift in Sources */,
 				04012B812053D75A003A136B /* DatePickerViewController.swift in Sources */,
+				04B225B2208050260031C687 /* UITextExtension.swift in Sources */,
+				04EDB200207DCC620068F93A /* LEDService.swift in Sources */,
 				04F5FEB52052E6D4001066CB /* LoginViewController.swift in Sources */,
+				04B225AD20804E090031C687 /* SARoundableButton.swift in Sources */,
+				04EDB202207DCCB50068F93A /* LED.swift in Sources */,
 				04F5FEB32052E6D4001066CB /* AppDelegate.swift in Sources */,
 				04F5FEFD2052F028001066CB /* FontExtension.swift in Sources */,
 				04F5FEED2052EF50001066CB /* Constants.swift in Sources */,
