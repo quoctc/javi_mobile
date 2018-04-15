@@ -48,7 +48,7 @@ class DateUtil {
     
     static func displayHoursFormatter() -> DateFormatter {
         let df = DateFormatter()
-        df.dateFormat = DateFormat.custom("HH").stringValue()
+        df.dateFormat = DateFormat.custom("H").stringValue()
         return df
     }
 }

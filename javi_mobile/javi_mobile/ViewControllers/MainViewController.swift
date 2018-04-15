@@ -49,6 +49,7 @@ class MainViewController: UIViewController {
     var filteredDates: [Date] = [Date]()
     
     var hoursChartViewController: HoursBarChartViewController!
+    var isFilteringByHours = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -445,7 +446,11 @@ class MainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func touchRefreshBtn(_ sender: Any) {
-        self.changeChartType(segmentQuickFilter)
+        if hoursChartView.isHidden == false {
+            hoursChartViewController.reloadData()
+        } else {
+            self.changeChartType(segmentQuickFilter)
+        }
     }
     
     @IBAction func touchLEDSwitch(_ sender: UISwitch) {

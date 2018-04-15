@@ -33,6 +33,10 @@ class HoursBarChartViewController: UIViewController {
         case custom
     }
     
+    var date: Date!
+    var fromHours: Int!
+    var toHours: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialChart()
@@ -86,7 +90,14 @@ class HoursBarChartViewController: UIViewController {
         chartView.rightAxis.enabled = false
     }
     
+    func reloadData() {
+        self.reloadDataWith(date: date, fromHours: fromHours, toHours: toHours)
+    }
+    
     func reloadDataWith(date: Date, fromHours: Int, toHours: Int) {
+        self.date = date
+        self.fromHours = fromHours
+        self.toHours = toHours
         //filterDateButton.setTitle("Hôm nay", for: .normal)
         let calendar = Calendar.current
         var fromDateComponent = DateComponents()
