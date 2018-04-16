@@ -9,5 +9,7 @@
 #ifndef javi_mobile_Bridging_Header_h
 #define javi_mobile_Bridging_Header_h
 
+#import "L3SDKIPCam.h"
+#import "L3SDKIPCamViewer.h"
 
 #endif /* javi_mobile_Bridging_Header_h */
