@@ -70,3 +70,10 @@ extension TimePickerViewController: SegueHandler {
         case SegueDismissToChart
     }
 }
+
+extension CamListViewController: SegueHandler {
+    enum SegueIdentifier: String {
+        case SegueCameraListToDetail
+        case SegueUndefined
+    }
+}
