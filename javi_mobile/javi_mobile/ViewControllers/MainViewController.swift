@@ -392,7 +392,7 @@ class MainViewController: UIViewController {
         toDateComponent.hour = toHours
         let toDate = calendar.date(from: toDateComponent)
         
-        self.filterDateButton.setTitle("From \(DateUtil.displayHoursFormatter().string(from: fromDate!)) To \(DateUtil.displayHoursFormatter().string(from: toDate!)) of \(DateUtil.displayDateFormatter().string(from: date))", for: .normal)
+        self.filterDateButton.setTitle("From \(DateUtil.displayHoursFormatter().string(from: fromDate!)) h:00 To \(DateUtil.displayHoursFormatter().string(from: toDate!))h:00 of \(DateUtil.displayDateFormatter().string(from: date))", for: .normal)
         self.hoursChartViewController.reloadDataWith(date: date, fromHours: fromHours, toHours: toHours)
     }
     

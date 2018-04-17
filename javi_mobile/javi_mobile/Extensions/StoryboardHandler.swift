@@ -24,13 +24,7 @@ extension StoryboardHandler where Self:UIStoryboard {
 // MARK: - Storyboard Identifier (Have to set in .storyboard file and coppy to here
 extension UIStoryboard: StoryboardHandler {
     enum StoryboardIdentifier: String {
-        case SignupViewController
-        case LoginNavigationController
-        case IndicatorViewController
-        case AlertViewController
-        case MapViewController
-        case MenuViewController
-        case ChatNavigationController
+        case PickerViewController
     }
 }
 

@@ -9,11 +9,15 @@
 import UIKit
 
 class TimePickerViewController: UIViewController {
-
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var fromHoursTextField: UITextField!
-    @IBOutlet weak var toHoursTextField: UITextField!
+//    @IBOutlet weak var fromHoursTextField: UITextField!
+//    @IBOutlet weak var toHoursTextField: UITextField!
+    
+    @IBOutlet weak var fromHoursPicker: UIHoursPicker!
+    @IBOutlet weak var toHoursPicker: UIHoursPicker!
+    
     
     var fromHours: Int!
     var toHours: Int!
@@ -28,25 +32,48 @@ class TimePickerViewController: UIViewController {
         //Custome data
         datePicker.maximumDate = Date()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initPickers()
+    }
+    
+    private func initPickers() {
+        var data = [String]()
+        for i in 0...23 {
+            data.append(String(i))
+        }
+        fromHoursPicker.data = data.filter({ (item) -> Bool in
+            return item != data.last
+        })
+        toHoursPicker.data = data
+        
+        toHoursPicker.minimumValue = fromHoursPicker.selectedValue + 1
+        
+        fromHoursPicker.didSelectTitleCalback = { [weak self] (_ title: String) in
+            self?.toHoursPicker.minimumValue = (self?.fromHoursPicker.selectedValue ?? 0) + 1
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     //User touched filter button
     @IBAction func touchedDoneBtn(_ sender: Any) {
-        guard let fromHours = fromHoursTextField.text,
-            let intFromHours = Int(fromHours), intFromHours >= 0,
-            let toHours = toHoursTextField.text,
-            let intToHours = Int(toHours), intToHours <= 23 else { return }
-        self.fromHours = intFromHours
-        self.toHours = intToHours
+        guard let fromHours = fromHoursPicker.selectedValue,
+            fromHours >= 0,
+            let toHours = toHoursPicker.selectedValue,
+            toHours <= 23,
+            toHours > fromHours else { return }
+        self.fromHours = fromHours
+        self.toHours = toHours
         self.perform(segue: .SegueDismissToChart, sender: nil)
     }
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
@@ -56,5 +83,6 @@ class TimePickerViewController: UIViewController {
             }
         }
     }
-
+    
 }
+
