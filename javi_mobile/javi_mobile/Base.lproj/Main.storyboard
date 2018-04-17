@@ -60,7 +60,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzk-iX-LHJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzk-iX-LHJ">
                                 <rect key="frame" x="16" y="301" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,13 +69,24 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRh-BU-V2c">
                                 <rect key="frame" x="16" y="400" width="343" height="40"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Đăng nhập" backgroundImage="button_bg">
+                                <state key="normal" title="Login" backgroundImage="button_bg">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-ep-qKq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-ep-qKq">
                                 <rect key="frame" x="16" y="448" width="343" height="40"/>
-                                <state key="normal" image="no_account_button"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Do not have an account?">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="Roboto-Italic"/>
+                                                <font key="NSOriginalFont" size="14" name="Roboto-Italic"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <action selector="skipLoginTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VbO-MT-Qoc"/>
                                 </connections>
@@ -274,10 +285,10 @@
             </objects>
             <point key="canvasLocation" x="2741.5999999999999" y="-649.02548725637189"/>
         </scene>
-        <!--Lọc dữu liệu theo giờ-->
+        <!--Filter By Hours-->
         <scene sceneID="z3E-OI-BsX">
             <objects>
-                <viewController title="Lọc dữu liệu theo giờ" id="iUw-gB-H4T" customClass="TimePickerViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Filter By Hours" id="iUw-gB-H4T" customClass="TimePickerViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oTs-lo-eO5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,8 +313,8 @@
                                                     <action selector="didSelectedDate:" destination="Njq-eW-MNA" eventType="valueChanged" id="blv-Y7-61I"/>
                                                 </connections>
                                             </datePicker>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn ngày:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIA-1L-F73">
-                                                <rect key="frame" x="16" y="8" width="69.5" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIA-1L-F73">
+                                                <rect key="frame" x="16" y="8" width="27" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="wrZ-ue-PZG"/>
                                                 </constraints>
@@ -311,8 +322,8 @@
                                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="từ giờ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKI-7V-kdt">
-                                                <rect key="frame" x="16" y="215" width="39.5" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKI-7V-kdt">
+                                                <rect key="frame" x="16" y="215" width="36" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="LtP-1n-Fm5"/>
                                                 </constraints>
@@ -340,8 +351,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đến giờ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aS-aE-VLY">
-                                                <rect key="frame" x="16" y="300" width="50" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aS-aE-VLY">
+                                                <rect key="frame" x="16" y="300" width="19.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="UFc-ce-tFk"/>
                                                 </constraints>
@@ -375,7 +386,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="i1E-h9-e6Q"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <state key="normal" title="Lọc">
+                                                <state key="normal" title="Done">
                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -476,7 +487,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="vRc-wZ-pCZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                <state key="normal" title="từ 5 thg 3, 2018  đến 12 thg 3, 2018  ">
+                                                <state key="normal" title="From 5/3/2018 to 12/3/2018  ">
                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -503,7 +514,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="bgX-dO-FB6"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhiệt độ phòng máy lạnh:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVF-mF-XM6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempurature:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVF-mF-XM6">
                                                 <rect key="frame" x="13" y="426" width="349" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="349" id="NMh-Rb-lLg"/>
@@ -528,7 +539,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="8S2-Lz-EFv"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đèn phòng máy lạnh:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efC-74-c3S">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efC-74-c3S">
                                                 <rect key="frame" x="13" y="517" width="349" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="349" id="afq-ME-2wH"/>
@@ -559,6 +570,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Aoi-fc-bQG" secondAttribute="trailing" id="BNE-eE-fG3"/>
                                             <constraint firstItem="Aoi-fc-bQG" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" id="Ccl-CQ-465"/>
                                             <constraint firstItem="89x-ev-g0p" firstAttribute="width" secondItem="PVG-VL-XW2" secondAttribute="height" multiplier="349:667" id="Fqt-Rf-zW2"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="efC-74-c3S" secondAttribute="bottom" constant="8" id="IOK-5X-iSW"/>
                                             <constraint firstItem="Aoi-fc-bQG" firstAttribute="top" secondItem="ouw-f1-LxP" secondAttribute="bottom" constant="8" id="L6T-Ba-xuQ"/>
                                             <constraint firstItem="efC-74-c3S" firstAttribute="leading" secondItem="PVG-VL-XW2" secondAttribute="leading" constant="13" id="Noo-wo-7WY"/>
                                             <constraint firstItem="ouw-f1-LxP" firstAttribute="centerX" secondItem="PVG-VL-XW2" secondAttribute="centerX" id="SSP-CP-gN3"/>
@@ -601,7 +613,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zap-CN-Vwr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Biểu Đồ" id="yjh-uc-5qi">
+                    <navigationItem key="navigationItem" title="Chart" id="yjh-uc-5qi">
                         <barButtonItem key="leftBarButtonItem" image="icon_setting" id="A4l-tm-juh">
                             <connections>
                                 <segue destination="KQS-Wf-wek" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="2rM-xO-0XM"/>
@@ -627,10 +639,10 @@
             </objects>
             <point key="canvasLocation" x="2741.5999999999999" y="32.833583208395808"/>
         </scene>
-        <!--Lọc Dữ Liệu Theo Ngày-->
+        <!--Filter By Days-->
         <scene sceneID="nqL-RM-V7U">
             <objects>
-                <viewController title="Lọc Dữ Liệu Theo Ngày" id="Njq-eW-MNA" customClass="DatePickerViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Filter By Days" id="Njq-eW-MNA" customClass="DatePickerViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FsH-yW-6KA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -663,7 +675,7 @@
                                     <action selector="didSelectedDate:" destination="Njq-eW-MNA" eventType="valueChanged" id="nMm-jE-PJV"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Từ ngày:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-8O-nGY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-8O-nGY">
                                 <rect key="frame" x="16" y="26" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bKh-hb-AtY"/>
@@ -672,7 +684,7 @@
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đến ngày:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDQ-JF-MMO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDQ-JF-MMO">
                                 <rect key="frame" x="16" y="225" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="vMG-uq-dpJ"/>
@@ -685,7 +697,7 @@
                                 <rect key="frame" x="16" y="484" width="343" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Lọc">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -731,8 +743,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5CT-Op-Yq9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập Thông Tin Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84U-IB-jTi">
-                                        <rect key="frame" x="91" y="22" width="193" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84U-IB-jTi">
+                                        <rect key="frame" x="139" y="22" width="97" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -898,7 +910,7 @@
                                     <constraint firstAttribute="height" constant="44" id="lbV-14-QNZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Thêm">
+                                <state key="normal" title="Add">
                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -959,7 +971,7 @@
             </objects>
             <point key="canvasLocation" x="2273" y="1606"/>
         </scene>
-        <!--Danh Sách Camera-->
+        <!--Cameras-->
         <scene sceneID="Ioo-md-fo8">
             <objects>
                 <viewController id="AWB-K7-HZH" customClass="CamListViewController" customModule="javi_mobile" customModuleProvider="target" sceneMemberID="viewController">
@@ -985,8 +997,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uLW-lk-Fn7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Danh Sách Camera" id="rhC-sx-suV">
-                        <barButtonItem key="rightBarButtonItem" title="Thêm" id="JjC-qq-RLd">
+                    <navigationItem key="navigationItem" title="Cameras" id="rhC-sx-suV">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="JjC-qq-RLd">
                             <connections>
                                 <segue destination="q05-Xr-Rrj" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="xzu-m1-ZF0"/>
                             </connections>
@@ -1079,11 +1091,11 @@
             </objects>
             <point key="canvasLocation" x="1137" y="33"/>
         </scene>
-        <!--Biểu đồ-->
+        <!--Chart-->
         <scene sceneID="Kw7-fX-C7N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IW0-Dm-ghH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Biểu đồ" image="bar_chart_icon" selectedImage="bar_chart_icon" id="GpU-YO-ggr"/>
+                    <tabBarItem key="tabBarItem" title="Chart" image="bar_chart_icon" selectedImage="bar_chart_icon" id="GpU-YO-ggr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="hYM-8L-IuF">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1199,6 +1211,5 @@
         <image name="icon_close" width="128" height="128"/>
         <image name="icon_refresh" width="27" height="28"/>
         <image name="icon_setting" width="30" height="30"/>
-        <image name="no_account_button" width="131" height="17"/>
     </resources>
 </document>
