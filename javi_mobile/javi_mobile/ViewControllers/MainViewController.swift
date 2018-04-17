@@ -109,7 +109,7 @@ class MainViewController: UIViewController {
         
         chartView.rightAxis.enabled = false
         
-        filterDateButton.setTitle("Hôm nay", for: .normal)
+        filterDateButton.setTitle("Today", for: .normal)
         self.getData(fromService: DataService(), fromDate: Date().startOfDay, toDate: Date().endOfDay) { [weak self] (data) in
             //group data by day
             if let data = data, let dataDict = self?.groupData(by: .day, data: data) {
@@ -291,7 +291,7 @@ class MainViewController: UIViewController {
         switchToDateChart(isShowDateChar: true)
         var chartFormater: IAxisValueFormatter?
         var count = 1
-        var title = "Hôm nay"
+        var title = "Today"
         var startDate = Date().startOfDay
         var endDate = Date().endOfDay
         let selectedType = ChartType(rawValue: sender.selectedSegmentIndex)!
@@ -300,8 +300,8 @@ class MainViewController: UIViewController {
         case .day:
             chartFormater = DateValueFormatter()
             count = 1
-            title = "Hôm nay"
-            xLabels = ["Hôm nay"]
+            title = "Today"
+            xLabels = ["Today"]
             startDate = Date().startOfDay
             endDate = Date().endOfDay
             break
@@ -309,20 +309,20 @@ class MainViewController: UIViewController {
             chartFormater = WeekAxisValueFormatter()
             count = 7
             xLabels = (chartFormater as! WeekAxisValueFormatter).daysInWeek
-            title = "Tuần này"
+            title = "This week"
             startDate = Date().startOfWeek()?.startOfDay ?? Date()
             endDate = Date().endOfWeek()?.endOfDay ?? Date()
             break
         case .month:
             chartFormater = DateValueFormatter()
-            title = "Tháng này"
+            title = "This month"
             startDate = Date().startOfMonth().startOfDay
             endDate = Date().endOfMonth().endOfDay
             break
         case .year:
             chartFormater = YearAxisValueFormatter()
             count = 12
-            title = "Năm này"
+            title = "This year"
             startDate = Date().startOfYear().startOfDay
             endDate = Date().endOfYear().endOfDay
             break
@@ -364,7 +364,7 @@ class MainViewController: UIViewController {
             //prepare chart UI
             self?.filteredDates = [fromDate, toDate]
             self?.selectedChartType = .custom
-            self?.filterDateButton.setTitle("Từ \(fromDate.toString(dateStyle: .short, timeStyle: .none)) đến \(toDate.toString(dateStyle: .short, timeStyle: .none))", for: .normal)
+            self?.filterDateButton.setTitle("From \(fromDate.toString(dateStyle: .short, timeStyle: .none)) To \(toDate.toString(dateStyle: .short, timeStyle: .none))", for: .normal)
             self?.chartView.xAxis.valueFormatter = DateValueFormatter()
             //group data by day
             if let data = data, let dataDict = self?.groupData(by: .day, data: data) {
@@ -392,7 +392,7 @@ class MainViewController: UIViewController {
         toDateComponent.hour = toHours
         let toDate = calendar.date(from: toDateComponent)
         
-        self.filterDateButton.setTitle("Từ \(DateUtil.displayHoursFormatter().string(from: fromDate!)) đến \(DateUtil.displayHoursFormatter().string(from: toDate!)) của ngày \(DateUtil.displayDateFormatter().string(from: date))", for: .normal)
+        self.filterDateButton.setTitle("From \(DateUtil.displayHoursFormatter().string(from: fromDate!)) To \(DateUtil.displayHoursFormatter().string(from: toDate!)) of \(DateUtil.displayDateFormatter().string(from: date))", for: .normal)
         self.hoursChartViewController.reloadDataWith(date: date, fromHours: fromHours, toHours: toHours)
     }
     
@@ -491,7 +491,7 @@ class MainViewController: UIViewController {
                 completion(nil)
                 if let error = error as? APIError {
                     if error == APIError.noConnected {
-                        self?.showSimpleAlert(title: "Lỗi", message: "Không có kết nối!")
+                        self?.showSimpleAlert(title: "Error", message: "No connection!")
                         return
                     }
                 }
@@ -509,7 +509,7 @@ class MainViewController: UIViewController {
             case .Failure(let error):
                 if let error = error as? APIError {
                     if error == APIError.noConnected {
-                        self?.showSimpleAlert(title: "Lỗi", message: "Không có kết nối!")
+                        self?.showSimpleAlert(title: "Error", message: "No connection!")
                         return
                     }
                 }
@@ -528,7 +528,7 @@ class MainViewController: UIViewController {
             case .Failure(let error):
                 if let error = error as? APIError {
                     if error == APIError.noConnected {
-                        self?.showSimpleAlert(title: "Lỗi", message: "Không có kết nối!")
+                        self?.showSimpleAlert(title: "Error", message: "No connection!")
                         return
                     }
                 }

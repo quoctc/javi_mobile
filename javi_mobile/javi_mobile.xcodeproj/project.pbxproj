@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		04012B812053D75A003A136B /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04012B802053D75A003A136B /* DatePickerViewController.swift */; };
+		040604082083AB3E00FDC4AD /* AddNewCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040604072083AB3E00FDC4AD /* AddNewCameraViewController.swift */; };
+		04958F072083138D003BD4F4 /* L3SDKIPCam.m in Sources */ = {isa = PBXBuildFile; fileRef = 04958F042083138D003BD4F4 /* L3SDKIPCam.m */; };
+		04958F082083138D003BD4F4 /* L3SDKIPCamViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04958F062083138D003BD4F4 /* L3SDKIPCamViewer.m */; };
+		04958F0A208313D0003BD4F4 /* CamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04958F09208313D0003BD4F4 /* CamDetailViewController.swift */; };
+		04958F0E2083450A003BD4F4 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04958F0D2083450A003BD4F4 /* Camera.swift */; };
 		04A3E4AB2081E9AA0067451E /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */; };
 		04A3E4AD2081EF560067451E /* HoursBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AC2081EF560067451E /* HoursBarChartViewController.swift */; };
 		04A3E4AF208203E40067451E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AE208203E40067451E /* TestViewController.swift */; };
@@ -23,6 +28,10 @@
 		04B46D8120561F2300D89833 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D7520561F2300D89833 /* Models.swift */; };
 		04B46D8420561F2300D89833 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D7820561F2300D89833 /* User.swift */; };
 		04B46D86205630B800D89833 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46D85205630B800D89833 /* BalloonMarker.swift */; };
+		04BC920E2083489D006DC35D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC920D2083489D006DC35D /* UIViewExtension.swift */; };
+		04BC9212208348C6006DC35D /* CameraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC9210208348C6006DC35D /* CameraTableViewCell.swift */; };
+		04BC9213208348C6006DC35D /* CameraTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BC9211208348C6006DC35D /* CameraTableViewCell.xib */; };
+		04BC9215208349DB006DC35D /* CamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC9214208349DB006DC35D /* CamListViewController.swift */; };
 		04EDB1FE207DCB4A0068F93A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDB1FD207DCB4A0068F93A /* SettingViewController.swift */; };
 		04EDB200207DCC620068F93A /* LEDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDB1FF207DCC620068F93A /* LEDService.swift */; };
 		04EDB202207DCCB50068F93A /* LED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDB201207DCCB50068F93A /* LED.swift */; };
@@ -63,6 +72,13 @@
 
 /* Begin PBXFileReference section */
 		04012B802053D75A003A136B /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		040604072083AB3E00FDC4AD /* AddNewCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCameraViewController.swift; sourceTree = "<group>"; };
+		04958F032083138D003BD4F4 /* L3SDKIPCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L3SDKIPCam.h; sourceTree = "<group>"; };
+		04958F042083138D003BD4F4 /* L3SDKIPCam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = L3SDKIPCam.m; sourceTree = "<group>"; };
+		04958F052083138D003BD4F4 /* L3SDKIPCamViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L3SDKIPCamViewer.h; sourceTree = "<group>"; };
+		04958F062083138D003BD4F4 /* L3SDKIPCamViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = L3SDKIPCamViewer.m; sourceTree = "<group>"; };
+		04958F09208313D0003BD4F4 /* CamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamDetailViewController.swift; sourceTree = "<group>"; };
+		04958F0D2083450A003BD4F4 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		04A3E4AC2081EF560067451E /* HoursBarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursBarChartViewController.swift; sourceTree = "<group>"; };
 		04A3E4AE208203E40067451E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +87,7 @@
 		04B225B1208050260031C687 /* UITextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextExtension.swift; sourceTree = "<group>"; };
 		04B225B3208050710031C687 /* UITextField+FixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+FixCaretPosition.swift"; sourceTree = "<group>"; };
 		04B225B520805FB90031C687 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
+		04B3CE2A2084FD7800DEA20B /* javi_mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "javi_mobile-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		04B46D53205532B200D89833 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		04B46D5B20561E1600D89833 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		04B46D6E20561F2300D89833 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -78,6 +95,10 @@
 		04B46D7520561F2300D89833 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		04B46D7820561F2300D89833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04B46D85205630B800D89833 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
+		04BC920D2083489D006DC35D /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../../../../../../Saritasa/gafs/Application/gafs/CustomizedUIs/UIViewExtension.swift; sourceTree = "<group>"; };
+		04BC9210208348C6006DC35D /* CameraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewCell.swift; sourceTree = "<group>"; };
+		04BC9211208348C6006DC35D /* CameraTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraTableViewCell.xib; sourceTree = "<group>"; };
+		04BC9214208349DB006DC35D /* CamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamListViewController.swift; sourceTree = "<group>"; };
 		04EDB1FD207DCB4A0068F93A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04EDB1FF207DCC620068F93A /* LEDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDService.swift; sourceTree = "<group>"; };
 		04EDB201207DCCB50068F93A /* LED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LED.swift; sourceTree = "<group>"; };
@@ -132,6 +153,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04958F012083138D003BD4F4 /* L3SDK */ = {
+			isa = PBXGroup;
+			children = (
+				04958F022083138D003BD4F4 /* UIKit */,
+			);
+			path = L3SDK;
+			sourceTree = "<group>";
+		};
+		04958F022083138D003BD4F4 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				04958F032083138D003BD4F4 /* L3SDKIPCam.h */,
+				04958F042083138D003BD4F4 /* L3SDKIPCam.m */,
+				04958F052083138D003BD4F4 /* L3SDKIPCamViewer.h */,
+				04958F062083138D003BD4F4 /* L3SDKIPCamViewer.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		04B225AB20804E090031C687 /* UIButtons */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +193,8 @@
 		04B225B8208063900031C687 /* CustomizeUIs */ = {
 			isa = PBXGroup;
 			children = (
+				04BC920F208348B0006DC35D /* UItableViewCells */,
+				04BC920D2083489D006DC35D /* UIViewExtension.swift */,
 				04F5FEFB2052F027001066CB /* UIFonts */,
 				04B225AE20804FC90031C687 /* UITextFields */,
 				04B225AB20804E090031C687 /* UIButtons */,
@@ -179,8 +221,18 @@
 				04B46D7520561F2300D89833 /* Models.swift */,
 				04B46D7820561F2300D89833 /* User.swift */,
 				04EDB201207DCCB50068F93A /* LED.swift */,
+				04958F0D2083450A003BD4F4 /* Camera.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		04BC920F208348B0006DC35D /* UItableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				04BC9210208348C6006DC35D /* CameraTableViewCell.swift */,
+				04BC9211208348C6006DC35D /* CameraTableViewCell.xib */,
+			);
+			path = UItableViewCells;
 			sourceTree = "<group>";
 		};
 		04F5FEA62052E6D4001066CB = {
@@ -204,6 +256,8 @@
 		04F5FEB12052E6D4001066CB /* javi_mobile */ = {
 			isa = PBXGroup;
 			children = (
+				04B3CE2A2084FD7800DEA20B /* javi_mobile-Bridging-Header.h */,
+				04958F012083138D003BD4F4 /* L3SDK */,
 				04B225B8208063900031C687 /* CustomizeUIs */,
 				04B46D5520561E1600D89833 /* Services */,
 				04F5FEF42052EF90001066CB /* Utils */,
@@ -258,6 +312,9 @@
 				04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */,
 				04EDB1FD207DCB4A0068F93A /* SettingViewController.swift */,
 				04A3E4AE208203E40067451E /* TestViewController.swift */,
+				04958F09208313D0003BD4F4 /* CamDetailViewController.swift */,
+				04BC9214208349DB006DC35D /* CamListViewController.swift */,
+				040604072083AB3E00FDC4AD /* AddNewCameraViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -384,6 +441,7 @@
 				04F5FEDA2052EB08001066CB /* Roboto-Light.ttf in Resources */,
 				04F5FEBD2052E6D4001066CB /* LaunchScreen.storyboard in Resources */,
 				04F5FED82052EB08001066CB /* Roboto-BoldItalic.ttf in Resources */,
+				04BC9213208348C6006DC35D /* CameraTableViewCell.xib in Resources */,
 				04F5FED62052EB08001066CB /* Roboto-BlackItalic.ttf in Resources */,
 				04F5FEDF2052EB08001066CB /* Roboto-Thin.ttf in Resources */,
 				04F5FEDE2052EB08001066CB /* Roboto-Regular.ttf in Resources */,
@@ -410,6 +468,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -420,6 +480,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -477,19 +539,27 @@
 				04F5FEE42052EE71001066CB /* MainViewController.swift in Sources */,
 				04A3E4AB2081E9AA0067451E /* TimePickerViewController.swift in Sources */,
 				04B46D6620561E1600D89833 /* DataService.swift in Sources */,
+				04BC9212208348C6006DC35D /* CameraTableViewCell.swift in Sources */,
 				04F5FF022052FF57001066CB /* IntAxisValueFormatter.swift in Sources */,
+				04BC920E2083489D006DC35D /* UIViewExtension.swift in Sources */,
 				04F5FEF32052EF50001066CB /* StoryboardHandler.swift in Sources */,
+				04BC9215208349DB006DC35D /* CamListViewController.swift in Sources */,
 				04B46D54205532B200D89833 /* DateRange.swift in Sources */,
 				04F5FEFA2052EF90001066CB /* MapUtil.swift in Sources */,
+				04958F0E2083450A003BD4F4 /* Camera.swift in Sources */,
+				040604082083AB3E00FDC4AD /* AddNewCameraViewController.swift in Sources */,
 				04F5FEEF2052EF50001066CB /* Extensions.swift in Sources */,
+				04958F072083138D003BD4F4 /* L3SDKIPCam.m in Sources */,
 				04B46D7A20561F2300D89833 /* BaseModel.swift in Sources */,
 				04EDB1FE207DCB4A0068F93A /* SettingViewController.swift in Sources */,
 				04F5FF002052FF41001066CB /* LargeValueFormatter.swift in Sources */,
 				04B46D86205630B800D89833 /* BalloonMarker.swift in Sources */,
 				04F5FEF02052EF50001066CB /* NotificationHandler.swift in Sources */,
 				04B225B4208050710031C687 /* UITextField+FixCaretPosition.swift in Sources */,
+				04958F0A208313D0003BD4F4 /* CamDetailViewController.swift in Sources */,
 				04B225B620805FB90031C687 /* SettingManager.swift in Sources */,
 				04F5FEEE2052EF50001066CB /* DateExtension.swift in Sources */,
+				04958F082083138D003BD4F4 /* L3SDKIPCamViewer.m in Sources */,
 				04F5FEF12052EF50001066CB /* SegueHandler.swift in Sources */,
 				04B46D8020561F2300D89833 /* Sensor.swift in Sources */,
 				04012B812053D75A003A136B /* DatePickerViewController.swift in Sources */,
@@ -649,6 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.javi.javi-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "javi_mobile-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -669,6 +740,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "javi_mobile-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

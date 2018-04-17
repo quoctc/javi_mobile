@@ -256,7 +256,7 @@ class HoursBarChartViewController: UIViewController {
                 completion(nil)
                 if let error = error as? APIError {
                     if error == APIError.noConnected {
-                        self?.showSimpleAlert(title: "Lỗi", message: "Không có kết nối!")
+                        self?.showSimpleAlert(title: "Error", message: "No connection!")
                         return
                     }
                 }

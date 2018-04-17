@@ -28,11 +28,11 @@ class SettingViewController: UIViewController {
                 if isAvailable == true {
                     SettingManager.shared.update(ledId: value)
                 } else {
-                    self.showSimpleAlert(title: "Lỗi", message: "Led Id này không tồn tại")
+                    self.showSimpleAlert(title: "Error", message: "This Led Id does not exist")
                 }
             })
         } else {
-            self.showSimpleAlert(title: "Lỗi", message: "Bạn phải nhập led id trước khi nhấn update")
+            self.showSimpleAlert(title: "Error", message: "Have to input Led Id before update")
         }
     }
     
