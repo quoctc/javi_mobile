@@ -16,6 +16,9 @@
 		04A3E4AB2081E9AA0067451E /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */; };
 		04A3E4AD2081EF560067451E /* HoursBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AC2081EF560067451E /* HoursBarChartViewController.swift */; };
 		04A3E4AF208203E40067451E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4AE208203E40067451E /* TestViewController.swift */; };
+		04A3E4B2208263350067451E /* UIHoursPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4B1208263350067451E /* UIHoursPicker.swift */; };
+		04A3E4B4208263470067451E /* UITimeFormatPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4B3208263470067451E /* UITimeFormatPicker.swift */; };
+		04A3E4B6208265CA0067451E /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E4B5208265CA0067451E /* PickerViewController.swift */; };
 		04B225AD20804E090031C687 /* SARoundableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225AC20804E090031C687 /* SARoundableButton.swift */; };
 		04B225B020804FDE0031C687 /* SALabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225AF20804FDE0031C687 /* SALabelTextField.swift */; };
 		04B225B2208050260031C687 /* UITextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B225B1208050260031C687 /* UITextExtension.swift */; };
@@ -82,6 +85,9 @@
 		04A3E4AA2081E9AA0067451E /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		04A3E4AC2081EF560067451E /* HoursBarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursBarChartViewController.swift; sourceTree = "<group>"; };
 		04A3E4AE208203E40067451E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		04A3E4B1208263350067451E /* UIHoursPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHoursPicker.swift; sourceTree = "<group>"; };
+		04A3E4B3208263470067451E /* UITimeFormatPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimeFormatPicker.swift; sourceTree = "<group>"; };
+		04A3E4B5208265CA0067451E /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		04B225AC20804E090031C687 /* SARoundableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SARoundableButton.swift; sourceTree = "<group>"; };
 		04B225AF20804FDE0031C687 /* SALabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALabelTextField.swift; sourceTree = "<group>"; };
 		04B225B1208050260031C687 /* UITextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextExtension.swift; sourceTree = "<group>"; };
@@ -172,6 +178,15 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		04A3E4B02082630F0067451E /* UIPickers */ = {
+			isa = PBXGroup;
+			children = (
+				04A3E4B1208263350067451E /* UIHoursPicker.swift */,
+				04A3E4B3208263470067451E /* UITimeFormatPicker.swift */,
+			);
+			path = UIPickers;
+			sourceTree = "<group>";
+		};
 		04B225AB20804E090031C687 /* UIButtons */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,8 +208,9 @@
 		04B225B8208063900031C687 /* CustomizeUIs */ = {
 			isa = PBXGroup;
 			children = (
-				04BC920F208348B0006DC35D /* UItableViewCells */,
 				04BC920D2083489D006DC35D /* UIViewExtension.swift */,
+				04BC920F208348B0006DC35D /* UItableViewCells */,
+				04A3E4B02082630F0067451E /* UIPickers */,
 				04F5FEFB2052F027001066CB /* UIFonts */,
 				04B225AE20804FC90031C687 /* UITextFields */,
 				04B225AB20804E090031C687 /* UIButtons */,
@@ -315,6 +331,7 @@
 				04958F09208313D0003BD4F4 /* CamDetailViewController.swift */,
 				04BC9214208349DB006DC35D /* CamListViewController.swift */,
 				040604072083AB3E00FDC4AD /* AddNewCameraViewController.swift */,
+				04A3E4B5208265CA0067451E /* PickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -537,6 +554,7 @@
 				04B225B020804FDE0031C687 /* SALabelTextField.swift in Sources */,
 				04B46D8420561F2300D89833 /* User.swift in Sources */,
 				04F5FEE42052EE71001066CB /* MainViewController.swift in Sources */,
+				04A3E4B2208263350067451E /* UIHoursPicker.swift in Sources */,
 				04A3E4AB2081E9AA0067451E /* TimePickerViewController.swift in Sources */,
 				04B46D6620561E1600D89833 /* DataService.swift in Sources */,
 				04BC9212208348C6006DC35D /* CameraTableViewCell.swift in Sources */,
@@ -544,6 +562,7 @@
 				04BC920E2083489D006DC35D /* UIViewExtension.swift in Sources */,
 				04F5FEF32052EF50001066CB /* StoryboardHandler.swift in Sources */,
 				04BC9215208349DB006DC35D /* CamListViewController.swift in Sources */,
+				04A3E4B4208263470067451E /* UITimeFormatPicker.swift in Sources */,
 				04B46D54205532B200D89833 /* DateRange.swift in Sources */,
 				04F5FEFA2052EF90001066CB /* MapUtil.swift in Sources */,
 				04958F0E2083450A003BD4F4 /* Camera.swift in Sources */,
@@ -557,6 +576,7 @@
 				04F5FEF02052EF50001066CB /* NotificationHandler.swift in Sources */,
 				04B225B4208050710031C687 /* UITextField+FixCaretPosition.swift in Sources */,
 				04958F0A208313D0003BD4F4 /* CamDetailViewController.swift in Sources */,
+				04A3E4B6208265CA0067451E /* PickerViewController.swift in Sources */,
 				04B225B620805FB90031C687 /* SettingManager.swift in Sources */,
 				04F5FEEE2052EF50001066CB /* DateExtension.swift in Sources */,
 				04958F082083138D003BD4F4 /* L3SDKIPCamViewer.m in Sources */,

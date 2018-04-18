@@ -10,11 +10,13 @@ import UIKit
 
 class TestViewController: UIViewController {
 
-    @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var fromTextField: UITextField!
+    @IBOutlet weak var toTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        timePicker.minuteInterval = 0
-        // Do any additional setup after loading the view.
+        //let pickerVC = UIStoryboard.main().instantiate(viewController: .PickerViewController)
+        //fromTextField.inputView = pickerVC.view
+        //toTextField.inputView = pickerVC.view
     }
 
     override func didReceiveMemoryWarning() {

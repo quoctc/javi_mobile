@@ -12,11 +12,13 @@ import MBProgressHUD
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var ledTextField: SALabelTextField!
+    @IBOutlet weak var closeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadContentData()
+        ledTextField.delegate = self
     }
 
     @IBAction func touchUpdateBtn(_ sender: Any) {
@@ -66,5 +68,38 @@ class SettingViewController: UIViewController {
             break
         }
     }
+    
+    private func updateLedValue() {
+        if let text = ledTextField.text, let value = UInt64(text) {
+            let loadingHud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            //Check that ledId available on firebase
+            LEDService().isAvailable(ledId: value, completionHandler: { (isAvailable) in
+                loadingHud.hide(animated: true)
+                if isAvailable == true {
+                    self.closeButton.isEnabled = true
+                    SettingManager.shared.update(ledId: value)
+                } else {
+                    self.showSimpleAlert(title: "Error", message: "This Led Id does not exist")
+                }
+            })
+        } else {
+            self.showSimpleAlert(title: "Error", message: "Have to input Led Id before update")
+        }
+    }
+}
 
+extension SettingViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        closeButton.isEnabled = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateLedValue()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        updateLedValue()
+        return true
+    }
 }
