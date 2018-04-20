@@ -7,7 +7,13 @@ https://github.com/quoctc/javi_mobile.git
 https://github.com/quoctc/javi_mobile/tree/develop/javi_mobile/javi_python_code
 
 ##  Setup for Raspberry Pi 3
-### Step 1: Copy python source code files
+### Step 1: Install library
+1. Install firebase library
+Open Terminal and type:
+```
+sudo pip3 install pyrebase
+```
+### Step 2: Copy python source code files
 - db_local.py
 - fire_sent.py
 - javi.service
