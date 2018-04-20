@@ -1,0 +1,14 @@
+[Unit]
+Description=Javi Center Control
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/python3 -u javi_start.py
+WorkingDirectory= /home/pi/Javi/
+
+[Install]
+WantedBy=multi-user.target

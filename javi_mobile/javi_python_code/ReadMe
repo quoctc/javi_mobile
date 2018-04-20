@@ -1,0 +1,22 @@
+﻿1. copy files code:
+local.py
+fire_sent.py
+javi-9e878-firebase-adminsdk-0l20q-88c15ed3bc.json
+
+2. step 2
+Open terminal:
+sudo nano /etc/rc.local
+
+- add those lines to the last and above exit 0
+
+sudo python3 /home/pi/Javi/javi_start.py &
+
+3. Ctrl + O to save and Ctrl + X to exit file
+
+4. Setting
+Change minutes to update to firebase:
+>>> fire_sent: minutes 
+
+Update led Id:
+1. open file db_local.py
+2. update "led_id": "0",
