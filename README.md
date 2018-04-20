@@ -32,13 +32,13 @@ Open db_local.py and edit *led_id* inside this config:
 ```
 #Config for fire base connect
 config = {
-"apiKey": "AIzaSyAmegJ16miejiq7692rneO8j--BRRYYHnA",
-"authDomain": "javi-9e878.firebaseapp.com",
-"projectId": "javi-9e878",
-"databaseURL": "https://javi-9e878.firebaseio.com",
-"storageBucket": "javi-9e878.appspot.com",
+"apiKey":
+"authDomain":
+"projectId":
+"databaseURL":
+"storageBucket":
 "serviceAccount": JSON_PATH,
-"messagingSenderId": "431657355859",
+"messagingSenderId": 
 "led_id": "0",
 "tries_count": 5
 }
