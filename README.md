@@ -5,10 +5,10 @@ https://github.com/quoctc/javi_mobile.git
 
 ## How to open and run the mobile source code:
 ### Requisites
-1. Mac OS
-2. Xcode 9.3
+1. Mac OS # Opration System
+2. Xcode 9.3 # IDE
 https://itunes.apple.com/vn/app/xcode/id497799835?mt=12
-3. Cocoa Pods 1.5.3
+3. Cocoa Pods 1.5.3 # To install libraries
 This is instruction how to install cocoa pods:
 https://stackoverflow.com/questions/20755044/how-to-install-cocoapods
 4. Enroll an Appdle Development program (optional)
