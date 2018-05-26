@@ -49,12 +49,12 @@ Open Terminal and type:
 sudo pip3 install pyrebase
 ```
 ### Step 2: Copy python source code files
-- db_local.py
-- fire_sent.py
-- javi_start.py
-- javi.service
-- system_reboot.py
-- javi-9e878-firebase-adminsdk-0l20q-88c15ed3bc.json
+- db_local.py # to get the signal and save the local data
+- fire_sent.py # to send local data to cloud db (firebase)
+- javi_start.py # to run code files
+- javi.service # to run the service when raspberry start-up
+- system_reboot.py # to auto reboot after a day
+- javi-9e878-firebase-adminsdk-0l20q-88c15ed3bc.json # to link cloud database
 
 ### Step 2: System service config
 1. Open Terminal and type these cmd lines
