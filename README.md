@@ -3,6 +3,35 @@
 # Mobile Source:
 https://github.com/quoctc/javi_mobile.git
 
+## How to open and run the mobile source code:
+### Requisites
+1. Mac OS
+2. Xcode 9.3
+https://itunes.apple.com/vn/app/xcode/id497799835?mt=12
+3. Cocoa Pods 1.5.3
+This is instruction how to install cocoa pods:
+https://stackoverflow.com/questions/20755044/how-to-install-cocoapods
+4. Enroll an Appdle Development program (optional)
+If we do not enroll an apple developemt program, we only can run the app on the simulator
+https://developer.apple.com/programs/
+### Open and run the source code
+1. Install libraries
+ - Open command line tool in Mac OS. cd to the project folder **javi_mobile**
+ For example:
+ ```
+ sudo cd /Users/mac/Documents/Projects/Home/JavisIot/javi_mobile/javi_mobile
+ ```
+ - After cd to project folder, type the commanline below to install libraries:
+ ```
+ pod install
+ ```
+ This is the example result: ![Link](https://screencast.com/t/Q0cccOrh9)
+2. Open project folder in Mac OS finder, find the project workspace: **javi_mobile.xcworkspace** double click and open the project in Xcode.
+![Link](https://screencast.com/t/SUJ2pgNbN)
+ This is the example result: ![Link](https://screencast.com/t/SUJ2pgNbN)
+3. How to use Xcode
+ An instruction for using Xcode for beginer:
+ https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/BuildABasicUI.html
 # Raspberry Pi Source:
 https://github.com/quoctc/javi_mobile/tree/develop/javi_mobile/javi_python_code
 
@@ -16,9 +45,10 @@ sudo pip3 install pyrebase
 ### Step 2: Copy python source code files
 - db_local.py
 - fire_sent.py
-- javi.service
-- javi-9e878-firebase-adminsdk-0l20q-88c15ed3bc.json
 - javi_start.py
+- javi.service
+- system_reboot.py
+- javi-9e878-firebase-adminsdk-0l20q-88c15ed3bc.json
 
 ### Step 2: System service config
 1. Open Terminal and type these cmd lines
