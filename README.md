@@ -25,15 +25,21 @@ https://developer.apple.com/programs/
  ```
  pod install
  ```
- This is the example result: ![Link](https://screencast.com/t/Q0cccOrh9)
+ 
+ This is the example result: 
+ https://screencast.com/t/Q0cccOrh9
+ 
 2. Open project folder in Mac OS finder, find the project workspace: **javi_mobile.xcworkspace** double click and open the project in Xcode.
-![Link](https://screencast.com/t/SUJ2pgNbN)
- This is the example result: ![Link](https://screencast.com/t/SUJ2pgNbN)
+https://screencast.com/t/SUJ2pgNbN
+
+This is the example result:
+https://screencast.com/t/SUJ2pgNbN
+
 3. How to use Xcode
  An instruction for using Xcode for beginer:
  https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/BuildABasicUI.html
 # Raspberry Pi Source:
-https://github.com/quoctc/javi_mobile/tree/develop/javi_mobile/javi_python_code
+ https://github.com/quoctc/javi_mobile/tree/develop/javi_mobile/javi_python_code
 
 ##  Setup for Raspberry Pi 3
 ### Step 1: Install library
