@@ -24,19 +24,22 @@ class CamDetailViewController: UIViewController {
     }
     
     private func initCamera() {
-        guard let camera = self.camera else {
-            return
-        }
+//        guard let camera = self.camera else {
+//            return
+//        }
+        camera = Camera(name: "Test", ipAddress: "tcp/h264://192.168.13.51", port: "8000", userName: "", passWord: "")
+        
         ////////////////////////////////////////////////////////////////////////
         //IPCAM 1
         //sets remote ipcam params
         let ipCam1 = L3SDKIPCam()
-        ipCam1.url = camera.ipAddress
-        if let port = camera.port, let intPort = Int(port) {
+        ipCam1.url = "tcp/h264://192.168.13.51"//camera.ipAddress
+        //camera.port = "8000"
+        if let port = camera?.port, let intPort = Int(port) {
             ipCam1.port = intPort
         }
-        ipCam1.videoFolder="axis-cgi/mjpg/";
-        ipCam1.videoName="video.cgi";
+        //ipCam1.videoFolder="axis-cgi/mjpg/";
+        //ipCam1.videoName="video.cgi";
         
         //start streaming
         //ipCamViewer.delegate = self;

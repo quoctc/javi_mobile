@@ -8,6 +8,7 @@ import pyrebase
 from threading import Thread
 from signal import pause
 import logging
+import socket
 
 led_input = []
 led_output = []
@@ -56,6 +57,21 @@ class LED_Control(object):
     def __init__(self):
         print("start LED module control")
         logging.debug("start LED module control")
+
+    def internet_connected(self,host="8.8.8.8", port=53):
+        """
+            Host: 8.8.8.8 (google-public-dns-a.google.com)
+            OpenPort: 53/tcp
+            Service: domain (DNS/TCP)
+            """
+        try:
+            socket.setdefaulttimeout(1)
+            socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
+            return True
+        except Exception as ex:
+            pass
+        
+        return False
 
     def writeSerial(self, value):
         global led_output
@@ -113,6 +129,7 @@ class LED_Control(object):
     def start(self):
         print("start LED stream")
         logging.debug("start LED stream")
+        
         def led_stream_handler(data):
             status = data["data"]
             print("LED new value: {}".format(str(status)))
@@ -124,8 +141,23 @@ class LED_Control(object):
             else:
                 print("something is wrong")
                 logging.debug("something is wrong")
-        
-        led_stream = firebase_db.child("leds").child(config["led_id"]).child("status").stream(led_stream_handler)
+
+        def start_led_stream():
+            print("started led stream")
+            return firebase_db.child("leds").child(config["led_id"]).child("status").stream(led_stream_handler)
+
+        led_stream = start_led_stream()
+        while True:
+            time.sleep(0.5)
+            if not self.internet_connected() or not led_stream.thread.is_alive():
+                try:
+                    print("need to re-start led stream")
+                    logging.debug("need to re-start led stream")
+                    led_stream.close()
+                except Exception:
+                    client.captureException(tags={'handled_status': 'catched_and_logged'})
+                start_led_stream()
+
         #pause()
         
 # Init local database connection
